@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "python",
+    "python.venvFolders": [
+        "envs",
+        ".pyenv",
+        ".direnv", 
+        "~/dev/coachmeapp/back-end/venv"
+    ]
+}

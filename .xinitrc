@@ -1,0 +1,2 @@
+xrandr --output --auto
+dwm

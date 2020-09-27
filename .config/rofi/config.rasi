@@ -1,0 +1,11 @@
+configuration {               
+    font: "hack 10";        
+    theme: "gruvbox-dark-hard";
+    modi: "window,run,ssh,drun";
+    matching: "fuzzy";
+    width: 32;              
+    lines: 12;              
+    columns: 2;             
+    show-icons: true;         
+    icon-theme: "Papirius";
+}
