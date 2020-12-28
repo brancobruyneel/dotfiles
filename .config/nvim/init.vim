@@ -1,29 +1,33 @@
 " Section: Plugins
 call plug#begin('~/.config/.config/nvim/autoload/plugged')
 
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+Plug 'edkolev/tmuxline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'sheerun/vim-polyglot'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/playground'
 Plug '9mm/vim-closer'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
 " Section: Colors
 let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italix=1
+let g:gruvbox_italic=1
 set bg=dark
 colo gruvbox
 syntax enable                       " enable syntax processing
 
-" True color support for terminal
+"" True color support for terminal
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -116,32 +120,53 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
+nnoremap <leader>fd    <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>cl    <cmd>lua vim.lsp.diagnostic.clear(0)<CR>
+
 """ Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Section: Plugin settings
 
+
+"" vim-polygoth
+let g:python_highlight_all = 1
+
+
 "" fzf
+let $FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
+
 "" lightline
+function! ShowGitbranch()
+  return gitbranch#name() !=# '' ? ' ' . gitbranch#name() : ''
+endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
+      \ 'component': {
+      \     'lineinfo': ' %3l:%-2v'
+      \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'ShowGitbranch'
       \ },
       \ }
+
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator =  { 'left': '', 'right': '' }
 
 
 "" neovim lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 
 """ Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
@@ -149,6 +174,17 @@ set completeopt=menuone,noinsert,noselect
 """ Avoid showing message extra message when using completion
 set shortmess+=c
 
+"" tree sitter
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"   highlight = {
+"     enable = true,              -- false will disable the whole extension
+"     disable = { "c", "rust" },  -- list of language that will be disabled
+"   },
+" }
+" EOF
 
 
 " vim:set et sw=2 foldmethod=expr foldexpr=getline(v\:lnum)=~'^\"\ Section\:'?'>1'\:'=':
+"
