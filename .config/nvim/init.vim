@@ -48,6 +48,7 @@ set nocompatible                "
 
 " Section: UI Config
 set encoding=utf-8              " Set UTF-* as default encoding
+set mouse=a
 " set colorcolumn=79
 set nu                          " show line numbers
 set rnu                         " show relative numbers
@@ -69,6 +70,8 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+let g:python3_host_prog = '/home/branco/.pyenv/versions/neovim3/bin/python'
+
 " Section: Leader
 let mapleader=" "               " leader is space
 
@@ -86,6 +89,9 @@ set modeline
 set modelineexpr
 
 " Section: Mappings
+""
+nnoremap <leader><CR> :term python %<CR>
+
 "" paste toggle
 set pastetoggle=<F2>
 
@@ -166,7 +172,7 @@ let g:lightline.subseparator =  { 'left': '', 'right': '' }
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
-lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+" lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 
 """ Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
