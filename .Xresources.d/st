@@ -1,0 +1,40 @@
+! st !
+!--COLORS--!
+! special
+st.foreground:   fg
+st.background:   bg
+st.cursorColor:  cc
+st.alpha:        1
+st.borderpx:     12
+
+! black
+st.color0:       c00
+st.color8:       c08
+
+! red
+st.color1:       c01
+st.color9:       c09
+
+! green
+st.color2:       c02
+st.color10:      c10
+
+! yellow
+st.color3:       c03
+st.color11:      c11
+
+! blue
+st.color4:       c04
+st.color12:      c12
+
+! magenta
+st.color5:       c05
+st.color13:      c13
+
+! cyan
+st.color6:       c06
+st.color14:      c14
+
+! white
+st.color7:       c07
+st.color15:      c15
