@@ -1,17 +1,20 @@
 " Section: Plugins
 call plug#begin('~/.config/.config/nvim/autoload/plugged')
 
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'gruvbox-community/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'edkolev/tmuxline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'sheerun/vim-polyglot'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground'
+" Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 Plug '9mm/vim-closer'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -36,9 +39,9 @@ endif
 
 " Section: Spaces and Tabs
 set autoindent                  " automatic indent
-set tabstop=4                   " number of visual spaces per TAB
-set shiftwidth=4                " the size of an indent
-set softtabstop=4               " number of spaces in tab when editing
+set tabstop=2                   " number of visual spaces per TAB
+set shiftwidth=2                " the size of an indent
+set softtabstop=2               " number of spaces in tab when editing
 set expandtab                   " tabs are spaces
 
 " Section: Window
@@ -63,6 +66,9 @@ set timeoutlen=1000 ttimeoutlen=0
 set splitbelow
 set splitright
 
+let NERDTreeMinimalUI=1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 "" netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -96,7 +102,8 @@ nnoremap <leader><CR> :term python %<CR>
 set pastetoggle=<F2>
 
 "" netrw toggle
-map <silent> <C-n> :Lexplore<CR>
+" map <silent> <C-n> :Lexplore<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 "" yank to clipboard
 nnoremap <leader>y "+y
@@ -113,6 +120,7 @@ nnoremap <C-H> <C-W><C-H>
 
 "" fzf 
 nnoremap <C-p> :GitFiles<CR>
+nnoremap <A-p> :Rg<CR>
 
 "" lsp config
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -169,10 +177,29 @@ let g:lightline.subseparator =  { 'left': '', 'right': '' }
 
 
 "" neovim lsp
+set updatetime=1000
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
+let g:diagnostic_auto_popup_while_jump = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require'lspconfig'.pyls.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
-" lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+lua <<EOF
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- disable virtual text
+    virtual_text = false,
+
+    -- show signs
+    signs = true,
+
+    -- delay update diagnostics
+    update_in_insert = false,
+    -- display_diagnostic_autocmds = { "InsertLeave" },
+
+  }
+)
+EOF
 
 """ Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
@@ -180,17 +207,16 @@ set completeopt=menuone,noinsert,noselect
 """ Avoid showing message extra message when using completion
 set shortmess+=c
 
-"" tree sitter
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   highlight = {
-"     enable = true,              -- false will disable the whole extension
-"     disable = { "c", "rust" },  -- list of language that will be disabled
-"   },
-" }
-" EOF
-
+" tree sitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " vim:set et sw=2 foldmethod=expr foldexpr=getline(v\:lnum)=~'^\"\ Section\:'?'>1'\:'=':
 "
