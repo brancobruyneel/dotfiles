@@ -36,7 +36,6 @@ local setup_mappings = function()
   utils.key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
   utils.key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
   utils.key_mapper('n', '<leader>fq', ':lua require"telescope.builtin".quickfix()<CR>')
-  utils.key_mapper('n', '<leader>fd', ':lua require"telescope.builtin".dotfiles()<CR>')
 
   -- Nerdtree
   utils.key_mapper('n', '<leader>ne', ':NERDTreeToggle<CR>')
