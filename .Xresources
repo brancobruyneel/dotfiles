@@ -1,0 +1,17 @@
+! INCLUDE THEME !
+#include ".Xresources.d/themes/base16-gruvbox"
+
+! INCLUDE ROFI !
+!#include ".Xresources.d/rofi"
+
+! INCLUDE POLYBAR !
+#include ".Xresources.d/polybar"
+
+! INCLUDE ST !
+#include ".Xresources.d/st"
+
+! INCLUDE DWM !
+#include ".Xresources.d/dwm"
+
+! INCLUDE DUNST !
+#include ".Xresources.d/dunst"
