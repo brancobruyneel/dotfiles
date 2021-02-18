@@ -81,7 +81,8 @@ font-2 = Font Awesome 5 Free Solid:size=10;2
 font-3 = Font Awesome 5 Brands:size=10;2
 
 modules-left = dwm
-modules-right = spotify crypto pulseaudio date
+modules-center = date
+modules-right = spotify crypto pulseaudio
 
 tray-position = right
 tray-padding = 4
