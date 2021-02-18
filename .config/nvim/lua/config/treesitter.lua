@@ -10,7 +10,7 @@ configs.setup {
   playground = {
     enable = true,
     updatetime = 25
-  }
+  },
 }
 
 local parser_configs = parsers.get_parser_configs()
