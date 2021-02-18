@@ -6,6 +6,7 @@ export BAT_THEME="gruvbox"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval $(keychain --eval --quiet)
 
 ZSH_THEME="robbyrussell"
 
@@ -14,7 +15,8 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 alias vim="nvim"
-alias work="cd /home/branco/dev/coachmeapp/back-end/CoachMeBackend"
+alias work="cd $HOME/dev/coachmeapp/back-end/CoachMeBackend"
+alias school="cd $HOME/Documents/school/semester04"
 
 ## Git
 alias gd='git diff'                     # Diff changes in working dir against latest commit
@@ -33,6 +35,11 @@ alias gpp='git pull && git push'        # Never forget to pull first
 alias gpu='git push -u origin $(git status -sb | head -n1 | cut -c 4-)' # git push -u origin <BRANCHNAME>
 alias gpf='git push --force-with-lease && echo "YOU MONSTER!"' # A cleaner alternative
 alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" # Pretty logs
+
+fd() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
+}
 
 # Vi mode
 bindkey -v
