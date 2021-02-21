@@ -1,9 +1,4 @@
 local vim = vim
-local lualine = require('lualine')
-
-lualine.status()
-lualine.theme = 'gruvbox'
-lualine.sections.lualine_x = { require('lualine.components.filetype') }
 
 vim.g.colors_name = 'gruvbox'
 vim.g.gruvbox_contrast_dark = 'hard'
