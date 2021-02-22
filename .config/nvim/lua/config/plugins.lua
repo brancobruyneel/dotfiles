@@ -47,7 +47,6 @@ return packer.startup(function()
   
   use {
     'hoob3rt/lualine.nvim',
-    branch = 'diagnostics',
     config = function()
       local lualine = require('lualine')
       lualine.options = {
