@@ -1,7 +1,6 @@
 local execute = vim.api.nvim_command
 
 local fn = vim.fn
-
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -19,7 +18,6 @@ packer.init({
 })
 
 return packer.startup(function()
-  local use = use
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
   use 'anott03/nvim-lspinstall'
@@ -55,8 +53,8 @@ return packer.startup(function()
   use {
     'gruvbox-community/gruvbox',
     config = function()
-      vim.g.colors_name = 'gruvbox'
       vim.g.gruvbox_contrast_dark = 'hard'
+      vim.api.nvim_exec([[ colo gruvbox ]], false)
     end
   }
   

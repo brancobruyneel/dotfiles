@@ -1,5 +1,3 @@
-local vim = vim
-
 vim.g.mapleader = ' '
 
 local o = vim.o
