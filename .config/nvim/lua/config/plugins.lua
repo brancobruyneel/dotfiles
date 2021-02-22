@@ -1,4 +1,3 @@
-local vim = vim
 local execute = vim.api.nvim_command
 
 local fn = vim.fn
@@ -41,9 +40,25 @@ return packer.startup(function()
   use 'ryanoasis/vim-devicons'
   use {'prettier/vim-prettier', run = 'yarn install' }
 
-  use 'preservim/nerdtree'
+
   use 'tiagofumo/vim-nerdtree-syntax-highlight'
-  use 'gruvbox-community/gruvbox'
+  use {
+    'preservim/nerdtree',
+    config = function()
+      vim.g.NERDTreeShowHidden = 1
+      vim.g.NERDTreeMinimalUI = 1
+      vim.g.NERDTreeDirArrowExpandable = ''
+      vim.g.NERDTreeDirArrowCollapsible = ''
+    end
+  }
+
+  use {
+    'gruvbox-community/gruvbox',
+    config = function()
+      vim.g.colors_name = 'gruvbox'
+      vim.g.gruvbox_contrast_dark = 'hard'
+    end
+  }
   
   use {
     'hoob3rt/lualine.nvim',

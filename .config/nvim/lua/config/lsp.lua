@@ -11,6 +11,10 @@ local function setup_diagnostics()
       update_in_insert = true,
     }
   )
+  vim.cmd[[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=]]
+  vim.cmd[[sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning linehl= numhl=]]
+  vim.cmd[[sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=]]
+  vim.cmd[[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=]]
 end
 
 local function default_on_attach(client)
@@ -41,7 +45,6 @@ lspconfig.vimls.setup(default_config)
 lspconfig.pyls.setup(default_config)
 
 -- Lsp Settings
-local vim = vim
 vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 vim.g.Omnisharp_server_stdio = 0
 

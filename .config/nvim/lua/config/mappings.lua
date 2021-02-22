@@ -1,4 +1,3 @@
-local vim = vim
 local utils = require'config.utils'
 
 local setup_mappings = function()
