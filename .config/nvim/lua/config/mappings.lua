@@ -45,7 +45,7 @@ local setup_mappings = function()
   -- Clipboard
   utils.key_mapper('n', '<leader>y', '"+y')
   utils.key_mapper('v', '<leader>y', '"+y')
-  utils.key_mapper('n', '<leader>Y', 'gg"+yG')
+  utils.key_mapper('n', '<leader>Y', ':%y+<CR>')
 
 end
 
