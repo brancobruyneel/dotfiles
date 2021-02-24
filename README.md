@@ -52,9 +52,11 @@ cd ~/.config/lua/config
 ```
 
 Open `init.lua` and comment out the all the `require` statements except for `require'plugins.lua'`.
+
 Save and exit.
 
 Open vim and type `:PackerCompile` & `:PackerInstall`.
+
 You should now have installed all the plugins specified in plugins.lua.
 
 Last step go back in `init.lua` and uncomment the `require` statements.
