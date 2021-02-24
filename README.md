@@ -5,10 +5,16 @@
 ### Neovim
 
 A nerd font
-`yay -S nerd-fonts-hack`
+
+```
+yay -S nerd-fonts-hack
+```
 
 Neovim version 5.0+
-`yay -S neovim-nightly-bin`
+
+```
+yay -S neovim-nightly-bin
+```
 
 packer.nvim
 
