@@ -32,3 +32,29 @@ pacman -S npm
 ```
 
 To install `npm` packages globally without sudo follow [this](https://github.com/sindresorhus/guides/blob/main/npm-global-without-sudo.md) guide
+
+## Quick Neovim setup guide
+
+### Installation
+
+Copy the `.config/nvim` folder to your nvim config location.
+
+```sh
+cp -r .config/nvim ~/.config
+```
+
+#### Plugins
+
+Navigate to the `.config/nvim/lua/config` folder.
+
+```sh
+cd ~/.config/lua/config
+```
+
+Open `init.lua` and comment out the all the `require` statements except for `require'plugins.lua'`.
+Save and exit.
+
+Open vim and type `:PackerCompile` & `:PackerInstall`.
+You should now have installed all the plugins specified in plugins.lua.
+
+Last step go back in `init.lua` and uncomment the `require` statements.
