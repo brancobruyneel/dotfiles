@@ -2,7 +2,7 @@ local utils = require'config.utils'
 
 local setup_mappings = function()
   -- Temp commands
-  vim.cmd[[autocmd BufWritePre *.py,*.cs :lua vim.lsp.buf.formatting_sync()]]
+  vim.cmd[[autocmd BufWritePre *.cs :lua vim.lsp.buf.formatting_sync()]]
   vim.cmd[[autocmd BufWritePre *js,*ts,*jsx,*tsx,*.graphql,*.json,*.md,*.mdx,*.yml,*yaml :Prettier]]
 
   -- Completion
@@ -35,6 +35,7 @@ local setup_mappings = function()
   utils.key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
   utils.key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
   utils.key_mapper('n', '<leader>fq', ':lua require"telescope.builtin".quickfix()<CR>')
+  utils.key_mapper('n', '<leader>fd', ':lua require"config.telescope".search_dotfiles()<CR>')
 
   -- Nerdtree
   utils.key_mapper('n', '<leader>ne', ':NERDTreeToggle<CR>')

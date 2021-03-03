@@ -16,7 +16,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim="nvim"
 alias work="cd $HOME/dev/coachmeapp/back-end/CoachMeBackend"
-alias school="cd $HOME/Documents/school/semester04"
+alias mct="cd $HOME/dev/mct/semester04"
+alias dots="cd $HOME/dev/dotfiles"
 
 ## Git
 alias gd='git diff'                     # Diff changes in working dir against latest commit

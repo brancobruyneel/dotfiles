@@ -8,7 +8,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
-vim.cmd('packadd packer.nvim')
+vim.cmd[[packadd packer.nvim]]
 
 local packer = require'packer'
 local util = require'packer.util'
@@ -22,21 +22,21 @@ return packer.startup(function()
   use 'nvim-lua/completion-nvim'
   use 'anott03/nvim-lspinstall'
 
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/telescope.nvim'
-  use 'jremmen/vim-ripgrep'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'jremmen/vim-ripgrep'}}
+  }
 
   use 'tpope/vim-fugitive'
---  use 'jiangmiao/auto-pairs'
+
   use 'sheerun/vim-polyglot'
-
-
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/playground'
 
   use 'ryanoasis/vim-devicons'
   use {'prettier/vim-prettier', run = 'yarn install' }
+  use 'tpope/vim-commentary'
+  use 'tweekmonster/startuptime.vim'
 
 
   use 'tiagofumo/vim-nerdtree-syntax-highlight'
