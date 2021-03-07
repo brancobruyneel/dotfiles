@@ -47,4 +47,3 @@ lspconfig.pyls.setup(default_config)
 -- Lsp Settings
 vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 vim.g.Omnisharp_server_stdio = 0
-
