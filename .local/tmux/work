@@ -1,0 +1,27 @@
+#!/bin/sh
+
+SESSION="work"
+
+if [ ! $(tmux ls 2>/dev/null | grep -c "$SESSION") -eq 0 ]; then
+  tmux at -t $SESSION
+  exit 0
+fi
+
+cd $WORK
+
+tmux new -s $SESSION -d
+tmux send 'source ../venv/bin/activate; vim' c-m c-p
+tmux rename-window -t $SESSION nvim
+
+tmux neww
+tmux send -t 2 'source ../venv/bin/activate; sh build.sh --dev' c-m
+tmux splitw -v
+tmux splitw -h
+tmux send -t 2 'rr' c-m
+tmux rename-window -t 2 django
+tmux select-pane -t 1
+
+tmux neww
+
+tmux select-window -t 1
+tmux at -t $SESSION

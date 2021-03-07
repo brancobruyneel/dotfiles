@@ -29,6 +29,6 @@ vim.cmd[[set signcolumn=number]]
 vim.cmd[[set tabstop=2]]
 vim.cmd[[set softtabstop=2]]
 vim.cmd[[set shiftwidth=2]]
-vim.cmd[[set expandtab=true]]
+vim.cmd[[set expandtab]]
 
 require'config'

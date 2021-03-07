@@ -5,7 +5,6 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 alias vim="nvim"
-alias work="cd $HOME/dev/coachmeapp/back-end/CoachMeBackend"
 alias mct="cd $HOME/dev/mct/semester04"
 alias dots="cd $HOME/dev/dotfiles"
 alias rr="ranger"
