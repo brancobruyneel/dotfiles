@@ -19,17 +19,16 @@ o.completeopt='menuone,noinsert,noselect'
 bo.autoindent = true
 bo.smartindent = true
 
-o.tabstop = 2
-o.softtabstop = 2
-o.shiftwidth = 2
-o.expandtab = true
 wo.number = true -- display line numbers
 wo.relativenumber = true -- display relative line numbers
 wo.wrap = false
-
 o.splitbelow = true
 o.splitright = true
 
 vim.cmd[[set signcolumn=number]]
+vim.cmd[[set tabstop=2]]
+vim.cmd[[set softtabstop=2]]
+vim.cmd[[set shiftwidth=2]]
+vim.cmd[[set expandtab=true]]
 
 require'config'
