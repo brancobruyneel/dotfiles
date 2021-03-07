@@ -1,2 +1,5 @@
-xrandr --auto --output HDMI-0 --mode 1920x1080 --right-of DVI-D-0
-dwm
+xrdb ~/.Xresources
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK 
+ssh-add &
+dwm 2> ~/.dwm.log
