@@ -25,12 +25,17 @@ return packer.startup(function()
   use 'anott03/nvim-lspinstall'
 
   use {
+    'kyazdani42/nvim-web-devicons',
+    config = function()
+      require'nvim-web-devicons'.setup{}
+    end
+  }
+  use {
     'nvim-telescope/telescope.nvim',
     requires = {
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'},
       {'jremmen/vim-ripgrep'},
-      {'kyazdani42/nvim-web-devicons'},
     }
   }
 
