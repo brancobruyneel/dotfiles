@@ -36,3 +36,7 @@ fd() {
 # Vi mode
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
