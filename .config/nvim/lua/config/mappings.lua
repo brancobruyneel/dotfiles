@@ -30,6 +30,7 @@ local setup_mappings = function()
 
   -- Telescope
   utils.key_mapper('n', '<C-p>', ':lua require"telescope.builtin".find_files()<CR>')
+  utils.key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".file_browser()<CR>')
   utils.key_mapper('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
   utils.key_mapper('n', '<leader>fw', ':lua require"telescope.builtin".grep_string(vim.fn.expand("<cword>"))<CR>')
   utils.key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')

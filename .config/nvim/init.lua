@@ -30,4 +30,6 @@ wo.wrap = false
 o.splitbelow = true
 o.splitright = true
 
+o.signcolumn = 'number'
+
 require'config'

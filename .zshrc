@@ -1,13 +1,3 @@
-export PATH="$PATH:/$HOME/.local/bin:/$HOME/.local/bin/statusbar"
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export ZSH="/home/branco/.oh-my-zsh"
-export BAT_THEME="gruvbox"
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-eval $(keychain --eval --quiet)
-
 ZSH_THEME="robbyrussell"
 
 plugins=()
@@ -18,6 +8,8 @@ alias vim="nvim"
 alias work="cd $HOME/dev/coachmeapp/back-end/CoachMeBackend"
 alias mct="cd $HOME/dev/mct/semester04"
 alias dots="cd $HOME/dev/dotfiles"
+alias rr="ranger"
+alias feh="feh -F"
 
 ## Git
 alias gd='git diff'                     # Diff changes in working dir against latest commit

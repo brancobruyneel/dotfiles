@@ -18,42 +18,40 @@ packer.init({
 })
 
 return packer.startup(function()
+  -- lsp
   use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/completion-nvim'
+  -- use 'nvim-lua/completion-nvim'
+  use 'hrsh7th/nvim-compe'
   use 'anott03/nvim-lspinstall'
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'jremmen/vim-ripgrep'}}
+    requires = {
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+      {'jremmen/vim-ripgrep'},
+      {'kyazdani42/nvim-web-devicons'},
+    }
   }
 
-  use 'tpope/vim-fugitive'
-
-  use 'sheerun/vim-polyglot'
+  -- syntax
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/playground'
 
-  use 'ryanoasis/vim-devicons'
   use {'prettier/vim-prettier', run = 'yarn install' }
-  use 'tpope/vim-commentary'
+
   use 'tweekmonster/startuptime.vim'
 
-
-  use 'tiagofumo/vim-nerdtree-syntax-highlight'
-  use {
-    'preservim/nerdtree',
-    config = function()
-      vim.g.NERDTreeShowHidden = 1
-      vim.g.NERDTreeMinimalUI = 1
-      vim.g.NERDTreeDirArrowExpandable = ''
-      vim.g.NERDTreeDirArrowCollapsible = ''
-    end
-  }
+  -- tpope god
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-surround'
 
   use {
     'gruvbox-community/gruvbox',
     config = function()
       vim.g.gruvbox_contrast_dark = 'hard'
+      vim.g.gruvbox_sign_column = 'bg0'
       vim.api.nvim_exec([[ colo gruvbox ]], false)
     end
   }
