@@ -4,32 +4,6 @@
 -- end
 local lspconfig = require('lspconfig')
 
-require('lspkind').init({
-    with_text = false,
-    symbol_map = {
-      Text = '',
-      Method = '',
-      Function = '',
-      Constructor = '',
-      Variable = '[]',
-      Class = 'פּ',
-      Interface = '蘒',
-      Module = '',
-      Property = '',
-      Unit = '塞',
-      Value = '',
-      Enum = '練',
-      Keyword = '',
-      Snippet = '',
-      Color = '',
-      File = '',
-      Folder = 'ﱮ',
-      EnumMember = '',
-      Constant = '',
-      Struct = ''
-    },
-})
-
 -- Diagnostics
 local function setup_diagnostics()
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
