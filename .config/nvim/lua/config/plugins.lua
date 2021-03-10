@@ -23,6 +23,7 @@ return packer.startup(function()
   -- use 'nvim-lua/completion-nvim'
   use 'hrsh7th/nvim-compe'
   use 'anott03/nvim-lspinstall'
+  use 'onsails/lspkind-nvim'
 
   use {
     'kyazdani42/nvim-web-devicons',
