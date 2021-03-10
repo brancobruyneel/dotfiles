@@ -16,8 +16,8 @@ tmux rename-window -t $SESSION nvim
 tmux neww
 tmux send -t 2 'source ../venv/bin/activate; sh build.sh --dev' c-m
 tmux splitw -v
-tmux splitw -h
-tmux send -t 2 'rr' c-m
+tmux splitw -h -l 30%
+tmux send -t 2 'watch -n 5 -c git -c color.ui=always status' c-m
 tmux rename-window -t 2 django
 tmux select-pane -t 1
 
