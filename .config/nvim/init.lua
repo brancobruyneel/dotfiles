@@ -24,6 +24,7 @@ wo.relativenumber = true -- display relative line numbers
 wo.wrap = false
 o.splitbelow = true
 o.splitright = true
+o.updatetime = 400
 
 vim.cmd[[set signcolumn=number]]
 vim.cmd[[set tabstop=2]]
