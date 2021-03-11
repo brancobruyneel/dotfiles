@@ -40,6 +40,19 @@ return packer.startup(function()
     }
   }
 
+  -- file explorer
+  use 'ryanoasis/vim-devicons'
+  use 'tiagofumo/vim-nerdtree-syntax-highlight'
+  use {
+    'preservim/nerdtree',
+    config = function()
+      vim.g.NERDTreeShowHidden = 1
+      vim.g.NERDTreeMinimalUI = 1
+      vim.g.NERDTreeDirArrowExpandable = ''
+      vim.g.NERDTreeDirArrowCollapsible = ''
+    end
+  }
+
   -- syntax
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/playground'
