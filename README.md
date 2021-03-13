@@ -4,6 +4,11 @@
 
 ### Neovim
 
+#### :camera_flash: Example Screenshots
+
+![telescope](./Pictures/test2.jpg)
+![lsp](./Pictures/test3.jpg)
+
 Nerd font
 
 ```
