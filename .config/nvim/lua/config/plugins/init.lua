@@ -1,5 +1,5 @@
 require'config.plugins.telescope'
 require'config.plugins.treesitter'
-require'config.plugins.bufferline'
 require'config.plugins.nvimtree'
+require'config.plugins.bufferline'
 require'config.plugins.webdevicons'
