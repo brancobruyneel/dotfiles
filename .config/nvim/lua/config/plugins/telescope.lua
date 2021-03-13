@@ -2,6 +2,7 @@ if not pcall(require, 'telescope') then
   return
 end
 
+
 require('telescope').setup {
 	defaults = {
 		prompt_prefix = ' > ',

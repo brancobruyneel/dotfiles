@@ -36,7 +36,7 @@ local setup_mappings = function()
   utils.key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
   utils.key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
   utils.key_mapper('n', '<leader>fq', ':lua require"telescope.builtin".quickfix()<CR>')
-  utils.key_mapper('n', '<leader>fd', ':lua require"config.telescope".search_dotfiles()<CR>')
+  utils.key_mapper('n', '<leader>fd', ':lua require"config.plugins.telescope".search_dotfiles()<CR>')
   utils.key_mapper('n', '<leader>fm', ':lua require"telescope".extensions.media_files.media_files()<CR>')
 
 
@@ -52,8 +52,9 @@ local setup_mappings = function()
   utils.key_mapper('n', '<leader>Y', ':%y+<CR>')
 
   -- bufferline
-  utils.key_mapper('n', '<leader>gn', ':BufferLineCycleNext<CR>')
-  utils.key_mapper('n', '<leader>gp', ':BufferLineCyclePrev<CR>')
+  utils.key_mapper('n', '<leader>bn', ':BufferLineCycleNext<CR>')
+  utils.key_mapper('n', '<leader>bp', ':BufferLineCyclePrev<CR>')
+  utils.key_mapper('n', '<leader>bl', ':BufferLinePick<CR>')
 
 end
 

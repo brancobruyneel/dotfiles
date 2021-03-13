@@ -34,16 +34,16 @@ return packer.startup(function()
     }
   }
 
-  use {'akinsho/nvim-bufferline.lua'}
+  use 'kyazdani42/nvim-web-devicons'
+  use 'akinsho/nvim-bufferline.lua'
 
   -- file explorer
-  use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
   -- syntax
-  use 'Th3Whit3Wolf/one-nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/playground'
+  use 'norcalli/nvim-colorizer.lua'
 
   use {'prettier/vim-prettier', run = 'yarn install' }
 
@@ -54,15 +54,14 @@ return packer.startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
 
-  -- use {
-  --   'gruvbox-community/gruvbox',
-    -- config = function()
-    --   vim.g.gruvbox_contrast_dark = 'hard'
-    --   vim.g.gruvbox_sign_column = 'bg0'
-    --   vim.api.nvim_exec([[ colo gruvbox ]], false)
-    -- end
-  -- }
-  -- use 'chriskempson/base16-vim'
+  use {
+    'gruvbox-community/gruvbox',
+    config = function()
+      vim.g.gruvbox_contrast_dark = 'hard'
+      vim.g.gruvbox_sign_column = 'bg0'
+      vim.api.nvim_exec([[ colo gruvbox ]], false)
+    end
+  }
   
   use {
     'hoob3rt/lualine.nvim',
@@ -71,7 +70,7 @@ return packer.startup(function()
       lualine.options = {
         section_separators = {'', ''},
         component_separators = {'', ''},
-        theme = 'onedark',
+        theme = 'gruvbox',
         icons_enabled = true,
       }
       lualine.sections.lualine_c = { { 'diagnostics', sources = { 'nvim_lsp' } }, 'filename' }

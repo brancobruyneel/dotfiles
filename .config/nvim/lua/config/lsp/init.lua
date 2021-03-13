@@ -1,8 +1,9 @@
--- local has_lsp, lspconfig = pcall(require, 'lspconfig')
--- if not has_lsp then
---   return
--- end
-local lspconfig = require('lspconfig')
+local has_lsp, lspconfig = pcall(require, 'lspconfig')
+if not has_lsp then
+  return
+end
+
+require'config.lsp.completion'
 
 -- Diagnostics
 local function setup_diagnostics()

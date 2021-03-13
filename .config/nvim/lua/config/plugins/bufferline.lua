@@ -19,36 +19,36 @@ require "bufferline".setup {
     highlights = {
         background = {
             guifg = comment_fg,
-            guibg = "#282c34"
+            guibg = "#1d2021"
         },
         fill = {
             guifg = comment_fg,
-            guibg = "#282c34"
+            guibg = "#1d2021"
         },
         buffer_selected = {
             guifg = normal_fg,
-            guibg = "#3A3E44",
+            guibg = "#282828",
             gui = "bold"
         },
         separator_visible = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            guifg = "#1d2021",
+            guibg = "#1d2021"
         },
         separator_selected = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            guifg = "#1d2021",
+            guibg = "#1d2021"
         },
         separator = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            guifg = "#1d2021",
+            guibg = "#1d2021"
         },
         indicator_selected = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            guifg = "#1d2021",
+            guibg = "#1d2021"
         },
         modified_selected = {
             guifg = string_fg,
-            guibg = "#3A3E44"
+            guibg = "#282828"
         }
     }
 }
