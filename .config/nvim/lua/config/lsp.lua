@@ -34,6 +34,17 @@ lspconfig.jsonls.setup(default_config)
 lspconfig.tsserver.setup(default_config)
 lspconfig.vimls.setup(default_config)
 lspconfig.pyls.setup(default_config)
+-- lspconfig.pyright.setup({
+--   on_attach = default_on_attach,
+--   settings = {
+--     python = {
+--       analysis = {
+--         autoSearchPaths = true,
+--         useLibraryCodeForTypes = false
+--       }
+--     }
+--   }
+-- })
 
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/opt/omnisharp-roslyn/run"

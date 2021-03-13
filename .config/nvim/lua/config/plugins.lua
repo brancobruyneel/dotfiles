@@ -20,40 +20,28 @@ packer.init({
 return packer.startup(function()
   -- lsp
   use 'neovim/nvim-lspconfig'
-  -- use 'nvim-lua/completion-nvim'
   use 'hrsh7th/nvim-compe'
   use 'anott03/nvim-lspinstall'
   use 'onsails/lspkind-nvim'
 
   use {
-    'kyazdani42/nvim-web-devicons',
-    config = function()
-      require'nvim-web-devicons'.setup{}
-    end
-  }
-  use {
     'nvim-telescope/telescope.nvim',
     requires = {
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-media-files.nvim'},
       {'jremmen/vim-ripgrep'},
     }
   }
 
+  use {'akinsho/nvim-bufferline.lua'}
+
   -- file explorer
-  use 'ryanoasis/vim-devicons'
-  use 'tiagofumo/vim-nerdtree-syntax-highlight'
-  use {
-    'preservim/nerdtree',
-    config = function()
-      vim.g.NERDTreeShowHidden = 1
-      vim.g.NERDTreeMinimalUI = 1
-      vim.g.NERDTreeDirArrowExpandable = ''
-      vim.g.NERDTreeDirArrowCollapsible = ''
-    end
-  }
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
 
   -- syntax
+  use 'Th3Whit3Wolf/one-nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/playground'
 
@@ -66,14 +54,15 @@ return packer.startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
 
-  use {
-    'gruvbox-community/gruvbox',
-    config = function()
-      vim.g.gruvbox_contrast_dark = 'hard'
-      vim.g.gruvbox_sign_column = 'bg0'
-      vim.api.nvim_exec([[ colo gruvbox ]], false)
-    end
-  }
+  -- use {
+  --   'gruvbox-community/gruvbox',
+    -- config = function()
+    --   vim.g.gruvbox_contrast_dark = 'hard'
+    --   vim.g.gruvbox_sign_column = 'bg0'
+    --   vim.api.nvim_exec([[ colo gruvbox ]], false)
+    -- end
+  -- }
+  -- use 'chriskempson/base16-vim'
   
   use {
     'hoob3rt/lualine.nvim',
@@ -82,7 +71,7 @@ return packer.startup(function()
       lualine.options = {
         section_separators = {'', ''},
         component_separators = {'', ''},
-        theme = 'gruvbox',
+        theme = 'onedark',
         icons_enabled = true,
       }
       lualine.sections.lualine_c = { { 'diagnostics', sources = { 'nvim_lsp' } }, 'filename' }

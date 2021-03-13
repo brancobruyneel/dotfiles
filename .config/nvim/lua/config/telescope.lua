@@ -36,10 +36,16 @@ require('telescope').setup {
 		grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
 		qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 	},
-
+  extensions = {
+    media_files = {
+        filetypes = {"png", "webp", "jpg", "jpeg"},
+        find_cmd = "rg" -- find command (defaults to `fd`)
+    }
+  }
 }
 
 -- native extension
+pcall(require('telescope').load_extension, 'media_files')
 pcall(require('telescope').load_extension, 'fzy_native')
 pcall(require('telescope').load_extension, 'gh')
 
