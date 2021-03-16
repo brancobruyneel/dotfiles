@@ -8,7 +8,8 @@ local setup_mappings = function()
   -- Completion
   vim.cmd[[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"]]
   vim.cmd[[inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"]]
-  vim.cmd[[inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"]]
+  vim.cmd[[inoremap <silent><expr> <CR> compe#confirm('<CR>')]]
+
 
   -- Diagnostics
   utils.key_mapper('n', '<leader>dn', ':lua vim.lsp.diagnostic.goto_next()<CR>')
