@@ -2,8 +2,9 @@ local utils = require'config.utils'
 
 local setup_mappings = function()
   -- Temp commands
-  vim.cmd[[autocmd BufWritePre *.cs :lua vim.lsp.buf.formatting_sync()]]
+  vim.cmd[[autocmd BufWritePre *.cs :lua vim.lsp.buf.formatting_sync(nil, 1000)]]
   vim.cmd[[autocmd BufWritePre *js,*ts,*jsx,*tsx,*.graphql,*.json,*.md,*.mdx,*.yml,*yaml :Prettier]]
+
 
   -- Completion
   vim.cmd[[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"]]
@@ -28,10 +29,11 @@ local setup_mappings = function()
   utils.key_mapper('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<CR>')
   utils.key_mapper('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
   utils.key_mapper('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
+  utils.key_mapper('n', '<leader>ff', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>')
 
   -- Telescope
   utils.key_mapper('n', '<C-p>', ':lua require"telescope.builtin".find_files()<CR>')
-  utils.key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".file_browser()<CR>')
+  -- utils.key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".file_browser()<CR>')
   utils.key_mapper('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
   utils.key_mapper('n', '<leader>fw', ':lua require"telescope.builtin".grep_string(vim.fn.expand("<cword>"))<CR>')
   utils.key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
@@ -56,6 +58,7 @@ local setup_mappings = function()
   utils.key_mapper('n', '<leader>bn', ':BufferLineCycleNext<CR>')
   utils.key_mapper('n', '<leader>bp', ':BufferLineCyclePrev<CR>')
   utils.key_mapper('n', '<leader>bl', ':BufferLinePick<CR>')
+  utils.key_mapper('n', '<leader>bd', ':bd<CR>')
 
 end
 

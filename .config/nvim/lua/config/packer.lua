@@ -62,21 +62,7 @@ return packer.startup(function()
       vim.api.nvim_exec([[ colo gruvbox ]], false)
     end
   }
-  
-  use {
-    'hoob3rt/lualine.nvim',
-    config = function()
-      local lualine = require('lualine')
-      lualine.options = {
-        section_separators = {'', ''},
-        component_separators = {'', ''},
-        theme = 'gruvbox',
-        icons_enabled = true,
-      }
-      lualine.sections.lualine_c = { { 'diagnostics', sources = { 'nvim_lsp' } }, 'filename' }
-      lualine.extensions = { 'fzf' }
-      lualine.status()
-    end
-  }
+  use 'hoob3rt/lualine.nvim'
+
   end
 )

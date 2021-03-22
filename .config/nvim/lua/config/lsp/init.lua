@@ -34,7 +34,8 @@ lspconfig.html.setup(default_config)
 lspconfig.jsonls.setup(default_config)
 lspconfig.tsserver.setup(default_config)
 lspconfig.vimls.setup(default_config)
-lspconfig.pyls.setup(default_config)
+-- lspconfig.pyls.setup(default_config)
+lspconfig.pyright.setup(default_config)
 -- lspconfig.pyright.setup({
 --   on_attach = default_on_attach,
 --   settings = {
