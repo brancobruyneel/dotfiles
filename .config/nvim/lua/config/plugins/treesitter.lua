@@ -1,16 +1,7 @@
-local parsers = require'nvim-treesitter.parsers'
-local configs = require'nvim-treesitter.configs'
-
-configs.setup {
-  ensure_installed = "maintained",
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
-    enable = true,
-    disable = {},
-  },
-  playground = {
-    enable = true,
-    updatetime = 25
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
   },
 }
-
-local parser_configs = parsers.get_parser_configs()

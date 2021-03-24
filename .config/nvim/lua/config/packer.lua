@@ -18,6 +18,7 @@ packer.init({
 })
 
 return packer.startup(function()
+  use 'wbthomason/packer.nvim'
   -- lsp
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
@@ -35,7 +36,7 @@ return packer.startup(function()
   }
 
   use 'kyazdani42/nvim-web-devicons'
-  use 'akinsho/nvim-bufferline.lua'
+  -- use 'akinsho/nvim-bufferline.lua'
 
   -- file explorer
   use 'kyazdani42/nvim-tree.lua'
