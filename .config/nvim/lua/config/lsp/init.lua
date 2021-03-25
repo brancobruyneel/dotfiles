@@ -42,7 +42,7 @@ lspconfig.pyright.setup({
     python = {
       analysis = {
         autoSearchPaths = true,
-        useLibraryCodeForTypes = false
+        useLibraryCodeForTypes = false,
       }
     }
   }
