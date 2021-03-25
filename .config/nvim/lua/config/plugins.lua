@@ -1,6 +1,7 @@
 return require('packer').startup {
   function(use)
     use 'wbthomason/packer.nvim'
+
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
@@ -49,6 +50,7 @@ return require('packer').startup {
 
     -- status line
     use 'hoob3rt/lualine.nvim'
+
     
 	end
 }
