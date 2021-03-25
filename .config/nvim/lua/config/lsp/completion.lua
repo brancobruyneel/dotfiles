@@ -1,4 +1,4 @@
-vim.o.completeopt = { "menuone", "noinsert", "noselect" }
+vim.o.completeopt = "menuone,noinsert,noselect"
 vim.o.pumheight = 12
 vim.cmd [[set shortmess+=c]]
 
