@@ -37,6 +37,8 @@ vim.cmd[[set tabstop=4]]
 vim.cmd[[set softtabstop=4]]
 vim.cmd[[set shiftwidth=4]]
 vim.cmd[[set expandtab]]
+vim.cmd[[set ai]]
+vim.cmd[[set smartindent]]
 
 require('config.plugins')
 require('config.mappings')
