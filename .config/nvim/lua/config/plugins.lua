@@ -5,7 +5,7 @@ return require('packer').startup {
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
-    use 'anott03/nvim-lspinstall'
+    use 'kabouzeid/nvim-lspinstall'
     use 'onsails/lspkind-nvim'
 
     -- fuzzy finder
