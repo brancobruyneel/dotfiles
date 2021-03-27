@@ -1,5 +1,8 @@
 vim.o.completeopt = "menuone,noinsert,noselect"
 vim.o.pumheight = 12
+vim.o.pumblend = 15
+vim.o.winblend = 15
+
 vim.cmd [[set shortmess+=c]]
 
 require('lspkind').init({
@@ -21,7 +24,7 @@ require('lspkind').init({
       Snippet = '﬌',
       Color = '',
       File = '',
-      Folder = 'ﱮ',
+      Folder = '',
       EnumMember = '',
       Constant = '',
       Struct = ''

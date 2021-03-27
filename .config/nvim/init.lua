@@ -39,6 +39,7 @@ vim.cmd[[set shiftwidth=4]]
 vim.cmd[[set expandtab]]
 vim.cmd[[set ai]]
 vim.cmd[[set smartindent]]
+o.pumblend = 15
 
 require('config.plugins')
 require('config.mappings')
