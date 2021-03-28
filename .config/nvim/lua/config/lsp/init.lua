@@ -9,7 +9,7 @@ require'config.lsp.completion'
 local function setup_diagnostics()
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = true,
+      underline = false,
       virtual_text = false,
       signs = true,
       update_in_insert = true,
@@ -32,7 +32,7 @@ lspconfig.cssls.setup(default_config)
 lspconfig.dockerls.setup(default_config)
 lspconfig.html.setup(default_config)
 lspconfig.jsonls.setup(default_config)
-lspconfig.tsserver.setup(default_config)
+-- lspconfig.tsserver.setup(default_config)
 lspconfig.vimls.setup(default_config)
 lspconfig.pyls.setup(default_config)
 -- lspconfig.pyright.setup({
