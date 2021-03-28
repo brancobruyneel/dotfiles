@@ -285,7 +285,7 @@ split_all_top_level_comma_separated_values=False
 
 # Split before arguments if the argument list is terminated by a
 # comma.
-split_arguments_when_comma_terminated=False
+split_arguments_when_comma_terminated=True
 
 # Set to True to prefer splitting before '+', '-', '*', '/', '//', or '@'
 # rather than after.
