@@ -20,6 +20,8 @@ end
 local function default_on_attach(client)
   print('Attaching to ' .. client.name)
   setup_diagnostics()
+
+  vim.cmd[[autocmd BufWritePre *.cs,*py :lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 end
 
 local default_config = {
@@ -56,6 +58,7 @@ lspconfig.omnisharp.setup({
 })
 
 -- Lsp Settings
+
 vim.cmd[[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError]]
 vim.cmd[[sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning]]
 vim.cmd[[sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation]]
