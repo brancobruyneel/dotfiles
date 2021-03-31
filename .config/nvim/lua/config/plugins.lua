@@ -23,6 +23,10 @@ return require('packer').startup {
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/playground'
     use 'norcalli/nvim-colorizer.lua'
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        branch = 'lua',
+    }
 
     -- file explorer
     use 'kyazdani42/nvim-tree.lua'

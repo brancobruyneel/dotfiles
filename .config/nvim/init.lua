@@ -7,7 +7,7 @@ vim.g.mapleader = ' '
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
-	
+
 o.termguicolors   = true
 o.syntax 	      = 'on'
 o.showmode        = false
@@ -32,14 +32,16 @@ o.splitbelow      = true
 o.splitright      = true
 o.updatetime      = 400
 
-vim.cmd[[set signcolumn=yes:1]]
-vim.cmd[[set tabstop=4]]
-vim.cmd[[set softtabstop=4]]
-vim.cmd[[set shiftwidth=4]]
-vim.cmd[[set expandtab]]
-vim.cmd[[set ai]]
-vim.cmd[[set smartindent]]
-o.pumblend = 15
+bo.tabstop        = 4
+bo.softtabstop    = 4
+bo.shiftwidth     = 4
+bo.expandtab      = true
+bo.ai             = true
+bo.smartindent    = true
+
+wo.signcolumn     = 'yes:1'
+
+vim.cmd[[set noswapfile]]
 
 require('config.plugins')
 require('config.mappings')
