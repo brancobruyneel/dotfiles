@@ -2,11 +2,12 @@ if require('config.first_load')() then
     return
 end
 
-vim.g.mapleader = ' '
-
+local g = vim.g
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
+
+g.mapleader = ' '
 
 o.termguicolors   = true
 o.syntax 	      = 'on'
@@ -32,14 +33,14 @@ o.splitbelow      = true
 o.splitright      = true
 o.updatetime      = 400
 
-bo.tabstop        = 4
-bo.softtabstop    = 4
-bo.shiftwidth     = 4
-bo.expandtab      = true
-bo.ai             = true
-bo.smartindent    = true
-
 wo.signcolumn     = 'yes:1'
+
+vim.cmd[[set tabstop=4]]
+vim.cmd[[set softtabstop=4]]
+vim.cmd[[set shiftwidth=4]]
+vim.cmd[[set expandtab]]
+vim.cmd[[set ai]]
+vim.cmd[[set smartindent]]
 
 vim.cmd[[set noswapfile]]
 
