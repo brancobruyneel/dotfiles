@@ -21,7 +21,7 @@ local function default_on_attach(client)
   print('Attaching to ' .. client.name)
   setup_diagnostics()
 
-  vim.cmd[[autocmd BufWritePre *.cs,*py :lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+  -- vim.cmd[[autocmd BufWritePre *.cs,*py :lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 end
 
 local default_config = {

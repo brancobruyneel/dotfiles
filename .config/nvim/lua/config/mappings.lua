@@ -2,8 +2,7 @@ local utils = require('config.utils')
 
 local setup_mappings = function()
   -- Temp commands
-  vim.cmd[[autocmd BufWritePre *js,*ts,*jsx,*tsx,*.graphql,*.json,*.md,*.mdx,*.yml,*yaml :Prettier]]
-
+  -- vim.cmd[[autocmd BufWritePre *js,*ts,*jsx,*tsx,*.graphql,*.json,*.md,*.mdx,*.yml,*yaml :Prettier]]
 
   -- Completion
   vim.cmd[[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"]]
@@ -34,12 +33,13 @@ local setup_mappings = function()
   utils.key_mapper('n', '<C-p>', ':lua require"telescope.builtin".find_files()<CR>')
   -- utils.key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".file_browser()<CR>')
   utils.key_mapper('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
-  utils.key_mapper('n', '<leader>fw', ':lua require"telescope.builtin".grep_string(vim.fn.expand("<cword>"))<CR>')
   utils.key_mapper('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
   utils.key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
   utils.key_mapper('n', '<leader>fq', ':lua require"telescope.builtin".quickfix()<CR>')
   utils.key_mapper('n', '<leader>fd', ':lua require"config.plugin.telescope".search_dotfiles()<CR>')
   utils.key_mapper('n', '<leader>fm', ':lua require"telescope".extensions.media_files.media_files()<CR>')
+  utils.key_mapper('n', '<leader>fwd', ':lua require"telescope.builtin".lsp_workspace_diagnostics()<CR>')
+  utils.key_mapper('n', '<leader>fca', ':lua require"telescope.builtin".lsp_code_actions()<CR>')
 
 
   -- Nerdtree
