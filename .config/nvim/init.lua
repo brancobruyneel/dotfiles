@@ -47,4 +47,3 @@ vim.cmd[[set noswapfile]]
 require('config.plugins')
 require('config.mappings')
 require('config.lsp')
-require('config.plugin')
