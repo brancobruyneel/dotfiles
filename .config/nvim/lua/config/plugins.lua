@@ -28,14 +28,7 @@ return require('packer').startup {
     use 'kyazdani42/nvim-tree.lua'
 
     -- colorscheme
-    use {
-        'gruvbox-community/gruvbox',
-        config = function()
-            vim.g.gruvbox_contrast_dark = 'hard'
-            vim.g.gruvbox_sign_column = 'bg0'
-            vim.api.nvim_exec([[ colo gruvbox ]], false)
-        end
-    }
+    use 'gruvbox-community/gruvbox'
 
     -- icons
     use 'kyazdani42/nvim-web-devicons'
@@ -50,7 +43,6 @@ return require('packer').startup {
 
     -- status line
     use 'hoob3rt/lualine.nvim'
-
     
 	end
 }

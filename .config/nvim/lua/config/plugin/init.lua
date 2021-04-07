@@ -1,3 +1,4 @@
+require('config.plugin.colorscheme')
 require('config.plugin.colorizer')
 require('config.plugin.lualine')
 require('config.plugin.nvimtree')

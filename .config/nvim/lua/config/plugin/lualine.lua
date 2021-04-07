@@ -8,7 +8,7 @@ require('lualine').setup{
   sections = {
     lualine_a = { {'mode', upper = true, icon = '' } },
     lualine_b = { {'branch', icon = ''} },
-    lualine_c = { 'filename' },
+    lualine_c = { {'filename'} },
     lualine_x = { { 'diagnostics', sources = { 'nvim_lsp' } } },
     lualine_y = { 'filetype' },
     lualine_z = { 'location'  },
