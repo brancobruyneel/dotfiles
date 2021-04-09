@@ -28,6 +28,7 @@ local setup_mappings = function()
 
   -- Telescope
   utils.map_tele('<C-p>', 'find_files')
+  utils.map_tele('<leader>fp', 'preview_files')
   utils.map_tele('<leader>fg', 'git_files')
   utils.map_tele('<leader>fs', 'live_grep')
   utils.map_tele('<leader>fh', 'find_help')

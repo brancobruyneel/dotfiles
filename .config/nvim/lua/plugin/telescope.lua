@@ -5,7 +5,6 @@ end
 require('telescope').setup {
 	defaults = {
 		prompt_prefix = ' > ',
-
 		winblend = 0,
 		preview_cutoff = 120,
         shorten_path = true,
@@ -53,7 +52,15 @@ pcall(require('telescope').load_extension, 'gh')
 local M = {}
 
 function M.find_files()
-    require('telescope.builtin').find_files()
+    require('telescope.builtin').find_files {
+        previewer = false,
+    }
+end
+
+function M.preview_files()
+    require('telescope.builtin').find_files {
+        shorten_path = true,
+    }
 end
 
 function M.media_files()
@@ -78,7 +85,9 @@ end
 -- Git
 
 function M.git_files()
-    require('telescope.builtin').git_files()
+    require('telescope.builtin').git_files {
+        previewer = false,
+    }
 end
 
 -- LSP
@@ -96,6 +105,7 @@ end
 -- Custom
 function M.search_dotfiles() 
 	require("telescope.builtin").git_files {
+        previewer = false,
         prompt_title = "< DotFiles >",
         cwd = "$HOME/dev/dotfiles/",
 	}
