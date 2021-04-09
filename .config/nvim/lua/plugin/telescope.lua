@@ -9,13 +9,14 @@ require('telescope').setup {
 
 		winblend = 0,
 		preview_cutoff = 120,
+        shorten_path = true,
 
 		layout_strategy = 'horizontal',
 		layout_defaults = {
 			horizontal = {
 				width_padding = 0.1,
 				height_padding = 0.1,
-				preview_width = 0.55,
+				preview_width = 0.5,
 			},
 			vertical = {
 				width_padding = 0.05,
@@ -54,16 +55,22 @@ local M = {}
 
 M.search_dotfiles = function() 
 	require("telescope.builtin").git_files({
-			prompt_title = "< DotFiles >",
-			cwd = "$HOME/dev/dotfiles/",
+        prompt_title = "< DotFiles >",
+        cwd = "$HOME/dev/dotfiles/",
 	})
 end
 
+M.lsp_workspace_diagnostics = function()
+    require('telescope.builtin').lsp_workspace_diagnostics({
+        layout_strategy = "vertical",
+    })
+end
+
 function M.file_browser()
-  require('telescope.builtin').file_browser {
-    sorting_strategy = "ascending",
-    scroll_strategy = "cycle",
-    prompt_position = "top",
+    require('telescope.builtin').file_browser {
+        sorting_strategy = "ascending",
+        scroll_strategy = "cycle",
+        prompt_position = "top",
   }
 end
 

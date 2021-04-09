@@ -2,6 +2,9 @@ return require('packer').startup {
   function(use)
     use 'wbthomason/packer.nvim'
 
+    -- auto load files from lua/plugin
+    use 'tjdevries/astronauta.nvim'
+
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'

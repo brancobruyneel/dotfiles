@@ -38,7 +38,7 @@ local setup_mappings = function()
   utils.key_mapper('n', '<leader>fq', ':lua require"telescope.builtin".quickfix()<CR>')
   utils.key_mapper('n', '<leader>fd', ':lua require"config.plugin.telescope".search_dotfiles()<CR>')
   utils.key_mapper('n', '<leader>fm', ':lua require"telescope".extensions.media_files.media_files()<CR>')
-  utils.key_mapper('n', '<leader>fwd', ':lua require"telescope.builtin".lsp_workspace_diagnostics()<CR>')
+  utils.key_mapper('n', '<leader>fwd', ':lua require"config.plugin.telescope".lsp_workspace_diagnostics()<CR>')
   utils.key_mapper('n', '<leader>fca', ':lua require"telescope.builtin".lsp_code_actions()<CR>')
 
 
