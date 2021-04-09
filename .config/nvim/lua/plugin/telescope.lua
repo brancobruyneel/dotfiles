@@ -2,7 +2,6 @@ if not pcall(require, 'telescope') then
   return
 end
 
-
 require('telescope').setup {
 	defaults = {
 		prompt_prefix = ' > ',
@@ -53,14 +52,21 @@ pcall(require('telescope').load_extension, 'gh')
 
 local M = {}
 
-M.search_dotfiles = function() 
+function M.find_files()
+    require('telescope.builtin').find_files {
+        previewer = false,
+
+    }
+end
+
+function M.search_dotfiles() 
 	require("telescope.builtin").git_files({
         prompt_title = "< DotFiles >",
         cwd = "$HOME/dev/dotfiles/",
 	})
 end
 
-M.lsp_workspace_diagnostics = function()
+function M.lsp_workspace_diagnostics()
     require('telescope.builtin').lsp_workspace_diagnostics({
         layout_strategy = "vertical",
     })

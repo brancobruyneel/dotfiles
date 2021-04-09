@@ -30,16 +30,15 @@ local setup_mappings = function()
   utils.map('n', '<leader>ff', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>')
 
   -- Telescope
-  utils.map('n', '<C-p>', ':lua require"telescope.builtin".find_files()<CR>')
-  -- utils.map('n', '<leader>ff', ':lua require"telescope.builtin".file_browser()<CR>')
-  utils.map('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
-  utils.map('n', '<leader>fh', ':lua require"telescope.builtin".help_tags()<CR>')
-  utils.map('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
-  utils.map('n', '<leader>fq', ':lua require"telescope.builtin".quickfix()<CR>')
-  utils.map('n', '<leader>fd', ':lua require"config.plugin.telescope".search_dotfiles()<CR>')
-  utils.map('n', '<leader>fm', ':lua require"telescope".extensions.media_files.media_files()<CR>')
-  utils.map('n', '<leader>fwd', ':lua require"config.plugin.telescope".lsp_workspace_diagnostics()<CR>')
-  utils.map('n', '<leader>fca', ':lua require"telescope.builtin".lsp_code_actions()<CR>')
+  utils.map_tele('<C-p>', 'find_files')
+  utils.map_tele('<leader>fs', 'live_grep')
+  utils.map_tele('<leader>fh', 'find_help')
+  utils.map_tele('<leader>fb', 'find_buffer')
+  utils.map_tele('<leader>fq', 'quickfix')
+  utils.map_tele('<leader>fd', 'search_dotfiles')
+  utils.map_tele('<leader>fm', 'media_files')
+  utils.map_tele('<leader>fwd', 'lsp_workspace_diagnostics')
+  utils.map_tele('<leader>fca', 'code_actions')
 
 
   -- Nerdtree

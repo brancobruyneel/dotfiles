@@ -20,8 +20,6 @@ end
 local function default_on_attach(client)
   print('Attaching to ' .. client.name)
   setup_diagnostics()
-
-  -- vim.cmd[[autocmd BufWritePre *.cs,*py :lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 end
 
 local default_config = {
@@ -34,20 +32,9 @@ lspconfig.cssls.setup(default_config)
 lspconfig.dockerls.setup(default_config)
 lspconfig.html.setup(default_config)
 lspconfig.jsonls.setup(default_config)
--- lspconfig.tsserver.setup(default_config)
+lspconfig.tsserver.setup(default_config)
 lspconfig.vimls.setup(default_config)
 lspconfig.pyls.setup(default_config)
--- lspconfig.pyright.setup({
---   on_attach = default_on_attach,
---   settings = {
---     python = {
---       analysis = {
---         autoSearchPaths = true,
---         useLibraryCodeForTypes = false,
---       }
---     }
---   }
--- })
 
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/opt/omnisharp-roslyn/run"
@@ -63,6 +50,7 @@ vim.cmd[[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignE
 vim.cmd[[sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning]]
 vim.cmd[[sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation]]
 vim.cmd[[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint]]
+
 vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 
 vim.g.Omnisharp_server_stdio = 0
