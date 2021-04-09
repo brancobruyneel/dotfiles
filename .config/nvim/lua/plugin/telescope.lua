@@ -64,7 +64,9 @@ function M.preview_files()
 end
 
 function M.media_files()
-    require('telescope.extensions.media_files').media_files()
+    require('telescope').extensions.media_files.media_files {
+        shorten_path = true,
+    }
 end
 
 function M.file_browser()
