@@ -53,23 +53,11 @@ pcall(require('telescope').load_extension, 'gh')
 local M = {}
 
 function M.find_files()
-    require('telescope.builtin').find_files {
-        previewer = false,
-
-    }
+    require('telescope.builtin').find_files()
 end
 
-function M.search_dotfiles() 
-	require("telescope.builtin").git_files({
-        prompt_title = "< DotFiles >",
-        cwd = "$HOME/dev/dotfiles/",
-	})
-end
-
-function M.lsp_workspace_diagnostics()
-    require('telescope.builtin').lsp_workspace_diagnostics({
-        layout_strategy = "vertical",
-    })
+function M.media_files()
+    require('telescope.extensions.media_files').media_files()
 end
 
 function M.file_browser()
@@ -77,7 +65,40 @@ function M.file_browser()
         sorting_strategy = "ascending",
         scroll_strategy = "cycle",
         prompt_position = "top",
-  }
+    }
+end
+
+-- Vim
+
+function M.buffers()
+    require('telescope.builtin').buffers()
+end
+
+
+-- Git
+
+function M.git_files()
+    require('telescope.builtin').git_files()
+end
+
+-- LSP
+
+function M.lsp_workspace_diagnostics()
+    require('telescope.builtin').lsp_workspace_diagnostics {
+        layout_strategy = "vertical",
+    }
+end
+
+function M.lsp_code_actions()
+    require('telescope.builtin').lsp_code_actions()
+end
+
+-- Custom
+function M.search_dotfiles() 
+	require("telescope.builtin").git_files {
+        prompt_title = "< DotFiles >",
+        cwd = "$HOME/dev/dotfiles/",
+	}
 end
 
 return M

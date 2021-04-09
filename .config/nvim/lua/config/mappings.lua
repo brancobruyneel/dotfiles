@@ -1,9 +1,6 @@
 local utils = require('config.utils')
 
 local setup_mappings = function()
-  -- Temp commands
-  -- vim.cmd[[autocmd BufWritePre *js,*ts,*jsx,*tsx,*.graphql,*.json,*.md,*.mdx,*.yml,*yaml :Prettier]]
-
   -- Completion
   vim.cmd[[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"]]
   vim.cmd[[inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"]]
@@ -25,23 +22,22 @@ local setup_mappings = function()
   utils.map('n', 'gt', ':lua vim.lsp.buf.type_definition()<CR>')
   utils.map('n', 'K', ':lua vim.lsp.buf.hover()<CR>')
   utils.map('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<CR>')
-  utils.map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
+  -- utils.map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
   utils.map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
   utils.map('n', '<leader>ff', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>')
 
   -- Telescope
   utils.map_tele('<C-p>', 'find_files')
+  utils.map_tele('<leader>fg', 'git_files')
   utils.map_tele('<leader>fs', 'live_grep')
   utils.map_tele('<leader>fh', 'find_help')
-  utils.map_tele('<leader>fb', 'find_buffer')
-  utils.map_tele('<leader>fq', 'quickfix')
+  utils.map_tele('<leader>fb', 'buffers')
   utils.map_tele('<leader>fd', 'search_dotfiles')
   utils.map_tele('<leader>fm', 'media_files')
   utils.map_tele('<leader>fwd', 'lsp_workspace_diagnostics')
-  utils.map_tele('<leader>fca', 'code_actions')
+  utils.map_tele('<leader>ca', 'lsp_code_actions')
 
-
-  -- Nerdtree
+  -- NvimTree
   utils.map('n', '<leader>ne', ':NvimTreeToggle<CR>')
 
   -- Misc
@@ -51,6 +47,7 @@ local setup_mappings = function()
   utils.map('n', '<leader>y', '"+y')
   utils.map('v', '<leader>y', '"+y')
   utils.map('n', '<leader>Y', ':%y+<CR>')
+
 end
 
 setup_mappings()
