@@ -96,7 +96,7 @@ cursor-scroll = ns-resize
 
 [module/dwm]
 type = internal/dwm
-format = <label-tags> <label-layout> <label-floating> <label-title>
+format = <label-tags> <label-layout> <label-floating>
 
 
 enable-tags-click = true
