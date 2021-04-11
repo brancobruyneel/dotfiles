@@ -23,6 +23,7 @@ require('telescope').setup {
 			}
 		},
 
+
 		selection_strategy = 'reset',
 		sorting_strategy = 'descending',
 		scroll_strategy = 'cycle',
@@ -54,6 +55,8 @@ local M = {}
 function M.find_files()
     require('telescope.builtin').find_files {
         previewer = false,
+        -- Temporary when working with C# projects
+        file_ignore_patterns = {'.*/Debug/.*', 'obj/.*', },
     }
 end
 
