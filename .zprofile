@@ -1,7 +1,3 @@
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(keychain --eval --quiet)"
-
 # Exports
 ## Defaults
 export DEFAULT_USER='branco'
@@ -22,6 +18,9 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export ZSH="/home/branco/.oh-my-zsh"
 export PATH="$PATH:/$HOME/.local/bin:/$HOME/.local/bin/statusbar:/$HOME/.local/bin/tmux"
+export PATH="$PATH:/$HOME/.dotnet/tools"
+export PATH="$PATH:/$HOME/.local/bin/rofi"
+export PATH="$HOME/.pyenv/bin:$PATH"
 
 ## Customs
 export JAVA_HOME=''

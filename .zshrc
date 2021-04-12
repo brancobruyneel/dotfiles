@@ -9,6 +9,7 @@ alias mct="cd $HOME/dev/mct/semester04"
 alias dots="cd $HOME/dev/dotfiles"
 alias rr="ranger"
 alias feh="feh -F"
+alias sd="sudo shutdown now"
 
 ## Git
 alias gd='git diff'                     # Diff changes in working dir against latest commit
@@ -40,3 +41,7 @@ bindkey '^R' history-incremental-search-backward
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
+
+eval "$(keychain --eval --quiet id_rsa)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

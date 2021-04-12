@@ -8,6 +8,8 @@ local bo = vim.bo
 local wo = vim.wo
 
 g.mapleader = ' '
+g.python3_host_prog = '/home/branco/.pyenv/versions/neovim3/bin/python'
+g.python_host_prog = '/home/branco/.pyenv/versions/neovim2/bin/python'
 
 o.termguicolors   = true
 o.syntax 	      = 'on'
@@ -45,5 +47,5 @@ vim.cmd[[set smartindent]]
 vim.cmd[[set noswapfile]]
 
 require('config.plugins')
-require('config.mappings')
 require('config.lsp')
+require('config.mappings')
