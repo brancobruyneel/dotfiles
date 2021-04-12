@@ -50,4 +50,5 @@ cp -r dotfiles/.config/nvim ~/.config
 ```
 
 Open nvim and press `y` to install `packer.nvim`.
-Next restart nvim and install the plugins by executing `:PackerInstall`.
+
+Next restart `nvim` and install the plugins by executing the `:PackerInstall` command.
