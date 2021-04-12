@@ -12,13 +12,13 @@
 Nerd font
 
 ```
-yay -S nerd-fonts-hack
+paru -S nerd-fonts-hack
 ```
 
 Neovim version 5.0+
 
 ```
-yay -S neovim-nightly-bin
+paru -S neovim-nightly-bin
 ```
 
 Plugin manager: [packer.nvim](https://github.com/wbthomason/packer.nvim)
@@ -47,21 +47,3 @@ Copy the `.config/nvim` folder to your nvim config location.
 ```sh
 cp -r .config/nvim ~/.config
 ```
-
-#### Plugins
-
-Navigate to the `.config/nvim/lua/config` folder.
-
-```sh
-cd ~/.config/lua/config
-```
-
-Open `init.lua` and comment out the all the `require` statements except for `require'plugins.lua'`.
-
-Save and exit.
-
-Open vim and type `:PackerCompile` & `:PackerInstall`.
-
-You should now have installed all the plugins specified in plugins.lua.
-
-Last step go back in `init.lua` and uncomment the `require` statements.
