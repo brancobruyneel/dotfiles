@@ -45,5 +45,9 @@ To install `npm` packages globally without sudo follow [this](https://github.com
 Copy the `.config/nvim` folder to your nvim config location.
 
 ```sh
-cp -r .config/nvim ~/.config
+git clone https://github.com/BrancoBruyneel/dotfiles.git
+cp -r dotfiles/.config/nvim ~/.config
 ```
+
+Open nvim and press `y` to install `packer.nvim`.
+Next restart nvim and install the plugins by executing `:PackerInstall`.
