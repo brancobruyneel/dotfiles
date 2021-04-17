@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 local has_lsp, lspconfig = pcall(require, 'lspconfig')
 if not has_lsp then
   return
@@ -16,7 +17,7 @@ local function setup_diagnostics()
     }
   )
 
-  vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+  cmd("autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()")
 end
 
 local function default_on_attach(client)
@@ -48,10 +49,16 @@ lspconfig.omnisharp.setup({
 
 -- Lsp Settings
 
-vim.cmd[[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError]]
-vim.cmd[[sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning]]
-vim.cmd[[sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation]]
-vim.cmd[[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint]]
+cmd("sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError")
+cmd("sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning")
+cmd("sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation")
+cmd("sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint")
 
+cmd("hi LspDiagnosticsDefaultError guifg=#e06c75")
+cmd("hi LspDiagnosticsDefaultWarning guifg=#e5c07b")
+
+cmd("hi LspDiagnosticsSignError guifg=#e06c75")
+cmd("hi LspDiagnosticsSignWarning guifg=#e5c07b")
+cmd("hi LspDiagnosticsSignInfo guifg=#abb2bf")
 
 vim.g.Omnisharp_server_stdio = 0

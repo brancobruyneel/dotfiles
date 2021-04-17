@@ -6,7 +6,7 @@ vim.o.winblend = 15
 vim.cmd [[set shortmess+=c]]
 
 require('lspkind').init({
-    with_text = false,
+    with_text = true,
     symbol_map = {
       Text = '',
       Method = 'ƒ',
