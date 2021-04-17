@@ -1,5 +1,5 @@
 * {
-  base00:                         #282c34;
+  base00:                         #1e222a;
   base01:                         #353b45;
   base02:                         #3e4451;
   base03:                         #545862;
@@ -16,11 +16,12 @@
   base0E:                         #c678dd;
   base0F:                         #be5046;
 
-  background-input:               #3e4451CD;
-  background:                     #282c34CD;
-  background-selected:            #be5046CC;
-  foreground:                     #f2f2f2EE;
-  foreground-selected:            #ffffffFF;
-  urgent:                         #d19a6666;
-  urgent-selected:                #d19a6677;
+
+  background-input:               #3e4451;
+  background:                     #1e222a;
+  background-selected:            #2b2f37;
+  foreground:                     #f2f2f2;
+  foreground-selected:            #ffffff;
+  urgent:                         #d19a66;
+  urgent-selected:                #d19a66;
 }

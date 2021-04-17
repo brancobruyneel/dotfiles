@@ -2,8 +2,23 @@ return require('packer').startup {
   function(use)
     use 'wbthomason/packer.nvim'
 
-    -- auto load files from lua/plugin
-    use 'tjdevries/astronauta.nvim'
+    -- colorscheme
+    use 'norcalli/nvim-base16.lua'
+    use "nekonako/xresources-nvim"
+
+    -- syntax
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'norcalli/nvim-colorizer.lua'
+
+    -- status line
+    -- use "glepnir/galaxyline.nvim"
+    use 'hoob3rt/lualine.nvim'
+
+    -- icons
+    use 'kyazdani42/nvim-web-devicons'
+
+    -- file explorer
+    use 'kyazdani42/nvim-tree.lua'
 
     -- lsp
     use 'neovim/nvim-lspconfig'
@@ -22,30 +37,12 @@ return require('packer').startup {
         }
     }
 
-    -- syntax
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/playground'
-    use 'norcalli/nvim-colorizer.lua'
-
-    -- file explorer
-    use 'kyazdani42/nvim-tree.lua'
-
-    -- colorscheme
-    use 'gruvbox-community/gruvbox'
-
-    -- icons
-    use 'kyazdani42/nvim-web-devicons'
-
-    -- startuptime
-    use 'tweekmonster/startuptime.vim'
-
     -- tpope god
-    use 'tpope/vim-fugitive'
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
+    use 'tpope/vim-fugitive'
 
-    -- status line
-    use 'hoob3rt/lualine.nvim'
-    
+    -- statuptime
+    use 'tweekmonster/startuptime.vim'
 	end
 }

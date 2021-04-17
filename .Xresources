@@ -1,5 +1,5 @@
 ! INCLUDE THEME !
-#include ".Xresources.d/themes/base16-gruvbox"
+#include ".Xresources.d/themes/base16-one-dark"
 
 ! INCLUDE ROFI !
 !#include ".Xresources.d/rofi"

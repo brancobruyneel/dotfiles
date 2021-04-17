@@ -1,15 +1,15 @@
 configuration {
     font:                           "Hack Nerd Font 12";
     show-icons:                     true;
-	icon-theme: 					"Papirus-Dark";
-    display-drun: 					" ";
+	  icon-theme: 					          "Papirus-Dark";
+    display-drun: 					        " ";
     drun-display-format:            "{name}";
     threads:                        0;
     scroll-method:                  0;
     disable-history:                false;
     fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+	  hide-scrollbar: 				        true;
+	  sidebar-mode: 					        false;
 }
 
 @import "colors.rasi"
@@ -28,12 +28,12 @@ window {
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						0px 8px 0px 4px;
+    enabled: 						            true;
+	  padding: 						            0px 8px 0px 4px;
     vertical-align:                 0.5;
-	background-color: 				#00000000;
-	text-color: 					@foreground;
-	font:							"Hack Nerd Font 12";
+    background-color: 				      #00000000;
+    text-color: 					          @foreground;
+    font:							              "Hack Nerd Font 12";
 }
 
 inputbar {

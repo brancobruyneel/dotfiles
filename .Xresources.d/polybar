@@ -8,7 +8,7 @@ polybar.foreground-alt:         c07
 polybar.icon:                   c15
 polybar.alert:                  c01
 
-polybar.tag-focused-background:     base0F
+polybar.tag-focused-background:     c04
 polybar.tag-unfocused-background:   base01
 polybar.tag-visible-background:     c00
 polybar.tag-urgent-background:      c09

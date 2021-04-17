@@ -1,17 +1,22 @@
 ! DWM !
 
-#define bg0_s     #32302f
+#define bg0_s     #0d0e0f
 #define bg2       #504945
-#define bg3       #665c54
+#define bg3       #282c34
 
 ! Normal Color
-dwm.normbordercolor:        bg0_s
-dwm.normbgcolor:            bg0_s
-dwm.normfgcolor:            bg0_s
+dwm.normbordercolor:        bg3
+dwm.normbgcolor:           	bg0_s
+dwm.normfgcolor:            c07
 
 ! Selected Color
-dwm.selbordercolor:         bg3
-dwm.selbgcolor:             bg3
-dwm.selfgcolor:             bg3
+dwm.selbordercolor:         base01
+dwm.selbgcolor:             c03
+dwm.selfgcolor:             c07
+
+! Selected Color
+dwm.titlefg:                c07
+dwm.titlebg:                c00
+dwm.titleborder:            c00
 
 ! vim:ft=xdefaults

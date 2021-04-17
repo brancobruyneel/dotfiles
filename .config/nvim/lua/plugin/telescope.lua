@@ -6,6 +6,7 @@ require('telescope').setup {
 	defaults = {
 		prompt_prefix = ' > ',
 		winblend = 0,
+    width = 0.75,
 		preview_cutoff = 120,
         shorten_path = true,
 
