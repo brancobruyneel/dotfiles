@@ -6,8 +6,8 @@
 
 #### :camera_flash: Example Screenshots
 
-![telescope](./Pictures/screenshots/test4.png)
-![lsp](./Pictures/screenshots/test5.png)
+![telescope](./Pictures/screenshots/telescope.png)
+![lsp](./Pictures/screenshots/diagnostics.png)
 
 Nerd font
 
