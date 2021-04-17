@@ -8,6 +8,7 @@ require('config.plugins')
 require('config.options')
 
 require('colorizer').setup()
+require('nvim-autopairs').setup()
 
 require('plugin.webdevicons')
 require('plugin.statusline')

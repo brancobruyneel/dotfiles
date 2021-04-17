@@ -42,6 +42,9 @@ return require('packer').startup {
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive'
 
+    -- autopairs
+    use 'windwp/nvim-autopairs'
+
     -- statuptime
     use 'tweekmonster/startuptime.vim'
 	end
