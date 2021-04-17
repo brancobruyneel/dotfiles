@@ -33,20 +33,42 @@ margin-bottom = 0
 
 
 
+
 [colors]
-;background = ${xrdb:color0:#222}
-background = #1d2021
-background-alt = #282828
+foreground = #adb1b9   
+
+background = ${xrdb:polybar.background}
+backgroun-alt = ${xrdb:polybar.backgroun-alt}
+; foreground = ${xrdb:polybar.foreground}
+foreground-alt = ${xrdb:polybar.foreground-alt}
+icon= ${xrdb:polybar.icon}
+alert= ${xrdb:polybar.alert}
+
+tag-focused-background= #2b2f37
+; tag-focused-background= ${xrdb:polybar.tag-focused-background}
+tag-unfocused-background= ${xrdb:polybar.tag-unfocused-background}
+tag-visible-background= ${xrdb:polybar.tag-visible-background}
+tag-urgent-background= ${xrdb:polybar.tag-urgent-background}
+
+primary= ${xrdb:polybar.primary}
+secondary= ${xrdb:polybar.secondary}
+tertiary= ${xrdb:polybar.tertiary}
+quaternary= ${xrdb:polybar.quaternary}
+quinary= ${xrdb:polybar.quinary}
+
+
+;background = #1d2021
+;background-alt = #282828
 ;foreground = ${xrdb:color7:#222}
-foreground = #ebdbb2
-foreground-alt = #a89984
-tag-focused-background = #d79921
-tag-unfocused-background = #1d2021
-tag-visible-background = #1d2021
-tag-urgent-background = #cc241d
-primary = #ffb52a
-secondary = #cc241d
-alert = #bd2c40
+; foreground = #ebdbb2
+; foreground-alt = #a89984
+; tag-focused-background = #d79921
+; tag-unfocused-background = #1d2021
+; tag-visible-background = #1d2021
+; tag-urgent-background = #cc241d
+; primary = #ffb52a
+; secondary = #cc241d
+; alert = #bd2c40
 
 
 
@@ -70,19 +92,20 @@ line-size = 1
 line-color = #f00
 
 padding-left = 0
-padding-right = 0
+padding-right = 1
 
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = Ubuntu Mono:pixelsize=12;2
+font-0 = Hack:style:Bold:pixelsize=10;3
 font-1 = Font Awesome 5 Free:size=10;2
 font-2 = Font Awesome 5 Free Solid:size=10;2
 font-3 = Font Awesome 5 Brands:size=10;2
+font-4 = JoyPixels:scale=8;2
 
 modules-left = dwm
 modules-center = date
-modules-right = spotify crypto pulseaudio
+modules-right = spotify filesystem pulseaudio
 
 tray-position = right
 tray-padding = 4
@@ -162,6 +185,9 @@ label-empty =
 
 ; Separator in between workspaces
 ; label-separator = |
+;
+
+
 
 
 
