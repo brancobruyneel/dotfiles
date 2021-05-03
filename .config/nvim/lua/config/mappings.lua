@@ -2,10 +2,9 @@ local utils = require('config.utils')
 
 local setup_mappings = function()
   -- Completion
-  vim.cmd[[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"]]
-  vim.cmd[[inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"]]
   vim.cmd[[inoremap <silent><expr> <CR> compe#confirm('<CR>')]]
-
+  vim.cmd[[smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
+  vim.cmd[[imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
 
   -- Diagnostics
   utils.map('n', '<leader>dn', ':lua vim.lsp.diagnostic.goto_next()<CR>')

@@ -4,10 +4,11 @@ return require('packer').startup {
 
     -- colorscheme
     use 'norcalli/nvim-base16.lua'
-    use "nekonako/xresources-nvim"
+    use 'joshdick/onedark.vim'
 
     -- syntax
     use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/playground'
     use 'norcalli/nvim-colorizer.lua'
 
     -- status line
@@ -26,6 +27,9 @@ return require('packer').startup {
     use 'kabouzeid/nvim-lspinstall'
     use 'onsails/lspkind-nvim'
 
+    -- snippets
+    use 'hrsh7th/vim-vsnip'
+
     -- fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
@@ -36,6 +40,7 @@ return require('packer').startup {
             {'jremmen/vim-ripgrep'},
         }
     }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- tpope god
     use 'tpope/vim-commentary'
@@ -45,7 +50,11 @@ return require('packer').startup {
     -- autopairs
     use 'windwp/nvim-autopairs'
 
+    -- autosasve
+    use '907th/vim-auto-save'
+
     -- statuptime
     use 'tweekmonster/startuptime.vim'
+
 	end
 }

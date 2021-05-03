@@ -10,8 +10,7 @@ g.python_host_prog = '/home/branco/.pyenv/versions/neovim2/bin/python'
 vim.cmd[[syntax enable]]
 vim.cmd[[syntax on]]
 
-local base16 = require('base16')
-base16(base16.themes['onedark'], true)
+vim.cmd[[colo onedark]]
 
 -- options
 o.termguicolors   = true

@@ -39,6 +39,10 @@ require('telescope').setup {
 		qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 	},
   extensions = {
+   fzy_native = {
+      override_generic_sorter = true,
+      override_file_sorter = true,
+    },
     media_files = {
         filetypes = {"png", "webp", "jpg", "jpeg"},
         find_cmd = "rg" -- find command (defaults to `fd`)
@@ -48,8 +52,8 @@ require('telescope').setup {
 
 -- native extension
 pcall(require('telescope').load_extension, 'media_files')
-pcall(require('telescope').load_extension, 'fzy_native')
-pcall(require('telescope').load_extension, 'gh')
+
+require('telescope').load_extension('fzf')
 
 local M = {}
 

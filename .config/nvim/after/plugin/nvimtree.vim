@@ -5,6 +5,7 @@
 " augroup END
 " au FileType NvimTree set cursorline
 " au FileType NvimTree hi Cursor blend=100
+
 hi NvimTreeFolderIcon guifg = #61afef
 hi NvimTreeFolderName guifg = #61afef
 hi NvimTreeIndentMarker guifg=#383c44

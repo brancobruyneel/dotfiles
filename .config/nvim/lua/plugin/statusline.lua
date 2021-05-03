@@ -4,6 +4,7 @@ require('lualine').setup{
     section_separators = {'', ''},
     component_separators = {'', ''},
     icons_enabled = true,
+    disabled_filetypes = {'NvimTree'},
   },
   sections = {
     lualine_a = { {'mode', upper = true, icon = '' } },

@@ -6,6 +6,7 @@ end
 
 require'config.lsp.completion'
 
+
 -- Diagnostics
 local function setup_diagnostics()
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -25,8 +26,19 @@ local function default_on_attach(client)
   setup_diagnostics()
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
 local default_config = {
   on_attach = default_on_attach,
+  capabilities = capabilities,
 }
 
 -- Language Servers
