@@ -1,7 +1,7 @@
 vim.o.completeopt = "menuone,noinsert,noselect"
 vim.o.pumheight = 12
-vim.o.pumblend = 15
-vim.o.winblend = 15
+-- vim.o.pumblend = 15
+-- vim.o.winblend = 15
 
 vim.cmd [[set shortmess+=c]]
 
@@ -45,7 +45,7 @@ if has_compe then
     max_abbr_width = 50;
     max_kind_width = 50;
     max_menu_width = 10;
-    documentation = false;
+    documentation = true;
 
     source = {
       path = true;
