@@ -1,7 +1,5 @@
 local M = {}
 
-local sorters = require('telescope.sorters')
-
 TelescopeMapArgs = TelescopeMapArgs or {}
 
 function M.map_tele(key, f, options, buffer)

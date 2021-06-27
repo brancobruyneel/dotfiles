@@ -1,20 +1,18 @@
-if require('config.first_load')() then
+if require("config.first_load")() then
     return
 end
 
-vim.g.mapleader = ' '
+require("config.pluginList")
+require("config.options")
 
-require('config.plugins')
-require('config.options')
+local g = vim.g
 
-require('colorizer').setup()
+g.mapleader = " "
+g.theme = "onedark"
 
-require('plugin.webdevicons')
-require('plugin.statusline')
-require('plugin.treesitter')
-require('plugin.telescope')
-require('plugin.nvimtree')
-require('plugin.autopairs')
+require("config.highlights")
+require("config.mappings")
 
-require('config.lsp')
-require('config.mappings')
+require("plugin.webdevicons")
+require("plugin.autopairs")
+require("plugin.lualine")
