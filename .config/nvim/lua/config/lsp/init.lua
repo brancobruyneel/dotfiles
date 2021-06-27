@@ -18,7 +18,7 @@ local function setup_diagnostics()
     }
   )
 
-  cmd("autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()")
+  -- cmd("autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()")
 end
 
 local function default_on_attach(client)
@@ -49,7 +49,7 @@ lspconfig.html.setup(default_config)
 lspconfig.jsonls.setup(default_config)
 lspconfig.tsserver.setup(default_config)
 lspconfig.vimls.setup(default_config)
-lspconfig.pyls.setup(default_config)
+-- lspconfig.pyls.setup(default_config)
 
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/opt/omnisharp-roslyn/run"

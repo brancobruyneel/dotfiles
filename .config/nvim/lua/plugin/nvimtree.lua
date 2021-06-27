@@ -1,4 +1,4 @@
-vim.cmd [[packadd nvim-tree.lua]]
+-- vim.cmd [[packadd nvim-tree.lua]]
 
 vim.o.termguicolors = true
 

@@ -6,6 +6,9 @@ return require('packer').startup {
     use 'norcalli/nvim-base16.lua'
     use 'joshdick/onedark.vim'
 
+    -- formatter
+    use 'sbdchd/neoformat'
+
     -- syntax
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/playground'
@@ -29,6 +32,7 @@ return require('packer').startup {
 
     -- snippets
     use 'hrsh7th/vim-vsnip'
+    use 'mattn/emmet-vim'
 
     -- fuzzy finder
     use {

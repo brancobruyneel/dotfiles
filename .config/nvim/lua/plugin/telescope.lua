@@ -57,6 +57,10 @@ require('telescope').load_extension('fzf')
 
 local M = {}
 
+function M.live_grep()
+    require('telescope.builtin').live_grep()
+end
+
 function M.find_files()
     require('telescope.builtin').find_files {
         previewer = false,
