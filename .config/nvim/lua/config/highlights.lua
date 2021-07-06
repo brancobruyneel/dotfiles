@@ -73,9 +73,9 @@ fg("NvimTreeIndentMarker", one_bg2)
 -- fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
 
 -- telescope
-fg("TelescopeBorder", line)
-fg("TelescopePromptBorder", line)
-fg("TelescopeResultsBorder", line)
+fg("TelescopeBorder", grey)
+fg("TelescopePromptBorder", grey)
+fg("TelescopeResultsBorder", grey)
 fg("TelescopePreviewBorder", grey)
 
 -- LspDiagnostics ---

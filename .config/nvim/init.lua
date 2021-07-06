@@ -16,3 +16,10 @@ require("config.mappings")
 require("plugin.webdevicons")
 require("plugin.autopairs")
 require("plugin.lualine")
+
+vim.api.nvim_exec([[
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre *.{js,ts,tsx,jsx} Neoformat eslint_d
+   augroup END
+]], true)
