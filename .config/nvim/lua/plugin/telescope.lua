@@ -35,7 +35,7 @@ M.config = function ()
       file_sorter = require "telescope.sorters".get_fuzzy_file,
       file_ignore_patterns = {},
       generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
-      shorten_path = true,
+      path_display = {'absolute'},
       winblend = 0,
       border = {},
       borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
@@ -82,13 +82,13 @@ end
 
 function M.preview_files()
     require("telescope.builtin").find_files {
-        shorten_path = true,
+        path_display = {'relative'},
     }
 end
 
 function M.media_files()
     require("telescope").extensions.media_files.media_files {
-        shorten_path = true,
+        path_display = {'relative'},
     }
 end
 

@@ -11,6 +11,7 @@ M.config = function ()
         virtual_text = false,
         signs = true,
         update_in_insert = true,
+        severity_sort = true,
       }
     )
   end
@@ -43,7 +44,6 @@ M.config = function ()
   lspconfig.jsonls.setup(default_config)
   lspconfig.tsserver.setup(default_config)
   lspconfig.vimls.setup(default_config)
-  lspconfig.pyls.setup(default_config)
 
   local pid = vim.fn.getpid()
   local omnisharp_bin = "/opt/omnisharp-roslyn/run"
@@ -55,11 +55,10 @@ M.config = function ()
       end
   })
 
-  -- Lsp Settings
-  vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
-  vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-  vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
-  vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
 end
 
 return M

@@ -4,6 +4,10 @@ local utils = require("config.utils")
 vim.cmd[[inoremap <silent><expr> <CR> compe#confirm("<CR>")]]
 vim.cmd[[smap <expr> <C-l>   vsnip#available(1)  ? "<Plug>(vsnip-expand-or-jump)" : "<C-l>"]]
 vim.cmd[[imap <expr> <C-l>   vsnip#available(1)  ? "<Plug>(vsnip-expand-or-jump)" : "<C-l>"]]
+vim.cmd[[inoremap <silent><expr> <C-Space> compe#complete()]]
+vim.cmd[[inoremap <silent><expr> <C-e>     compe#close('<C-e>')]]
+vim.cmd[[inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })]]
+vim.cmd[[inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })]]
 
 -- Diagnostics
 utils.map("n", "<leader>dn", ":lua vim.lsp.diagnostic.goto_next()<CR>")
@@ -20,7 +24,7 @@ utils.map("n", "gr", ":lua vim.lsp.buf.references()<CR>")
 utils.map("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>")
 utils.map("n", "K", ":lua vim.lsp.buf.hover()<CR>")
 utils.map("n", "<c-k>", ":lua vim.lsp.buf.signature_help()<CR>")
--- utils.map("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
+-- utils.map("n", "<leader>ca", ":'<,'>lua vim.lsp.buf.range_code_action()<CR>")
 utils.map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
 utils.map("n", "<leader>ff", ":lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>")
 
