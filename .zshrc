@@ -4,14 +4,20 @@ plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
+# common
 alias vim="nvim"
-alias mct="cd $HOME/dev/mct/semester04"
 alias dots="cd $HOME/dev/dotfiles"
 alias rr="ranger"
 alias feh="feh -F"
 alias sd="sudo shutdown now"
+alias rb="sudo reboot now"
 
-## Git
+# tmux
+alias tns="tmux new -s"
+alias ta="tmux at"
+alias tk="pkill tmux"
+
+# git
 alias gd='git diff'                     # Diff changes in working dir against latest commit
 alias gdc='git diff --cached'           # Diff 'added' changes against latest commit'
 alias gs='git status --short'           # Quick git status
@@ -34,7 +40,7 @@ fd() {
   git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
 
-# Vi mode
+# vi mode
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
@@ -42,6 +48,5 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
 
+
 eval "$(keychain --eval --quiet id_rsa)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"

@@ -1,17 +1,42 @@
-! INCLUDE THEME !
-#include ".Xresources.d/themes/base16-one-dark"
+! st !
+st.font: Hack Nerd Font:pixelsize=24
 
-! INCLUDE ROFI !
-!#include ".Xresources.d/rofi"
+!--COLORS--!
+! special
+st.foreground:   fg
+st.background:   bg
+st.cursorColor:  cc
+st.alpha:        0.9
+st.borderpx:     15
 
-! INCLUDE POLYBAR !
-#include ".Xresources.d/polybar"
+! black
+st.color0:       c00
+st.color8:       c08
 
-! INCLUDE ST !
-#include ".Xresources.d/st"
+! red
+st.color1:       c01
+st.color9:       c08
 
-! INCLUDE DWM !
-#include ".Xresources.d/dwm"
+! green
+st.color2:       c02
+st.color10:      c10
 
-! INCLUDE DUNST !
-#include ".Xresources.d/dunst"
+! yellow
+st.color3:       c03
+st.color11:      c03
+
+! blue
+st.color4:       c04
+st.color12:      c04
+
+! magenta
+st.color5:       c05
+st.color13:      c13
+
+! cyan
+st.color6:       c06
+st.color14:      c06
+
+! white
+st.color7:       c07
+st.color15:      c15
