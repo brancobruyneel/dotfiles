@@ -17,6 +17,13 @@ alias tns="tmux new -s"
 alias ta="tmux at"
 alias tk="pkill tmux"
 
+## clipboard
+alias xclip='xclip -sel clip'
+
+## human readable sizes for du and df
+alias du="du -h"
+alias df="df -h"
+
 # git
 alias gd='git diff'                     # Diff changes in working dir against latest commit
 alias gdc='git diff --cached'           # Diff 'added' changes against latest commit'
