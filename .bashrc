@@ -20,9 +20,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 
-## Directories
-alias school='cd ~/Documents/school/2019-2020/semester02/'
-
 ## Easier directory jumping
 alias ..='cd ..'
 alias ...='cd ../..'
