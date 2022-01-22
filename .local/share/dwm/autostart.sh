@@ -1,7 +1,6 @@
 #!/bin/bash
-feh --bg-scale --randomize ~/Pictures/wallpapers/* &
-picom &
+picom --experimental-backends --backend glx --xrender-sync-fence &
+feh --bg-scale ~/Pictures/by_home4_2560.jpg &
 dunst &
 flameshot &
-dwmblocks &
-$HOME/.config/polybar/launch.sh &
+$HOME/.local/share/dwm/bar/bar.sh &
