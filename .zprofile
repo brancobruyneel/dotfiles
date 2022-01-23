@@ -16,10 +16,12 @@ export LANG="en_US.UTF-8"
 
 export ZSH="/home/branco/.oh-my-zsh"
 
-export PATH="$PATH:/$HOME/.local/bin"
-export PATH="$PATH:/$HOME/.dotnet/tools"
-export PATH="$PATH:/$HOME/.local/bin/rofi"
-export PATH="$PATH:/$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin/rofi"
+export PATH="$PATH:$HOME/.local/bin/tmux"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/.npm-packages/bin"
+
 
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
