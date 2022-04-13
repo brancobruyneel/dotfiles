@@ -1,6 +1,6 @@
 export DEFAULT_USER='branco'
-export EDITOR='/usr/bin/nvim'
-export VISUAL='/usr/bin/nvim'
+export EDITOR='/usr/local/bin/nvim'
+export VISUAL='/usr/local/bin/nvim'
 export PAGER='/usr/bin/less'
 export TERMINAL='/usr/bin/st'
 export BROWSER='/usr/bin/brave'
@@ -21,7 +21,12 @@ export PATH="$PATH:$HOME/.local/bin/rofi"
 export PATH="$PATH:$HOME/.local/bin/tmux"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.dotnet/tools"
-export PATH="$PATH:$HOME/.npm-packages/bin"
+export PATH="$PATH:$HOME/.npm-global/bin"
 
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
+export LIBVA_DRIVER_NAME="vdpau"
+export VDPAU_DRIVER="nvidia"
 
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"

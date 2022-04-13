@@ -11,11 +11,13 @@ alias rr="ranger"
 alias feh="feh -F"
 alias sd="sudo shutdown now"
 alias rb="sudo reboot now"
+alias nb='newsboat'
 
 # tmux
 alias tns="tmux new -s"
 alias ta="tmux at"
 alias tk="pkill tmux"
+alias tls="tmux ls"
 
 ## clipboard
 alias xclip='xclip -sel clip'
@@ -56,6 +58,12 @@ bindkey '^R' history-incremental-search-backward
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# kubectl
+source <(kubectl completion zsh)
+
+# helm
+source <(helm completion zsh)
+
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
@@ -63,3 +71,7 @@ fi
 
 eval "$(keychain --eval --quiet id_rsa)"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
