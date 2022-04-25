@@ -53,7 +53,6 @@ fd() {
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
-
 # fzf
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -64,10 +63,12 @@ source <(kubectl completion zsh)
 # helm
 source <(helm completion zsh)
 
+# npm
+source <(npm completion)
+
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
-
 
 eval "$(keychain --eval --quiet id_rsa)"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
