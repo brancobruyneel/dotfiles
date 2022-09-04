@@ -41,7 +41,7 @@ inputbar {
   background-color:               @background-input;
   text-color:                     @foreground;
   expand:                         false;
-  padding:                        12px 12px 12px 12px;
+  padding:                        12px;
   position:                       center;
 }
 

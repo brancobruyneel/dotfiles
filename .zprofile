@@ -1,9 +1,9 @@
 export DEFAULT_USER='branco'
-export EDITOR='/usr/local/bin/nvim'
-export VISUAL='/usr/local/bin/nvim'
+export EDITOR='/usr/bin/nvim'
+export VISUAL='/usr/bin/nvim'
 export PAGER='/usr/bin/less'
 export TERMINAL='/usr/bin/st'
-export BROWSER='/usr/bin/brave'
+export BROWSER='/usr/bin/firefox-developer-edition'
 export DOTFILES="$HOME/dev/dotfiles"
 export BAT_THEME="base16"
 
@@ -26,7 +26,8 @@ export PATH="$PATH:$HOME/.npm-global/bin"
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 
-export LIBVA_DRIVER_NAME="vdpau"
+export LIBVA_DRIVER_NAME="VDPAU"
+export LIBVA_DRIVER_PATH="/usr/lib/dri"
 export VDPAU_DRIVER="nvidia"
 
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
