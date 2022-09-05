@@ -11,6 +11,12 @@ M.general = {
   },
 }
 
+M.packer = {
+  n = {
+    ["<leader>ps"] = { "<cmd> PackerSync <CR>", "sync packer" },
+  },
+}
+
 M.nvimtree = {
   n = {
     ["<leader>ne"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },

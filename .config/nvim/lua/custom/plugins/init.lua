@@ -33,4 +33,20 @@ return {
   },
 
   ["nvim-treesitter/nvim-treesitter-context"] = {},
+
+  ["iamcco/markdown-preview.nvim"] = {
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+
+  ["phaazon/mind.nvim"] = {
+    branch = "v2.2",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require "custom.plugins.mind"
+    end,
+  },
 }
