@@ -1,4 +1,8 @@
+local override = require "custom.plugins.overrides"
+
 return {
+  ["NvChad/nvtrem"] = false,
+
   ["williamboman/mason-lspconfig.nvim"] = {},
 
   ["neovim/nvim-lspconfig"] = {
@@ -48,5 +52,22 @@ return {
     config = function()
       require "custom.plugins.mind"
     end,
+  },
+
+  -- overrides
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = override.nvimtree,
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = override.treesitter,
+  },
+  ["lewis6991/gitsigns.nvim"] = {
+    override_options = override.gitsigns,
+  },
+  ["williamboman/mason.nvim"] = {
+    override_options = override.mason,
+  },
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    override_options = override.blankline,
   },
 }
