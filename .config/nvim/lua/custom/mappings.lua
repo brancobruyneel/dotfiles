@@ -31,6 +31,12 @@ M.lsp = {
       end,
       "floating diagnostic",
     },
+    ["<leader>rn"] = {
+      function()
+        require("nvchad_ui.renamer").open()
+      end,
+      "lsp rename",
+    },
     ["ge"] = {
       function()
         vim.diagnostic.open_float()

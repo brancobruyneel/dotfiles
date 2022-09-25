@@ -1,4 +1,6 @@
-local config = require "plugins.configs.lspconfig"
+local on_attach = require("custom.plugins.lspconfig").on_attach
+local capabilities = require("custom.plugins.lspconfig").capabilities
+
 local lspconfig = require "lspconfig"
 
 require("mason-lspconfig").setup {
@@ -24,8 +26,8 @@ require("mason-lspconfig").setup {
 require("mason-lspconfig").setup_handlers {
   function(server_name)
     lspconfig[server_name].setup {
-      on_attach = config.on_attach,
-      capabilities = config.capabilities,
+      on_attach = on_attach,
+      capabilities = capabilities,
     }
   end,
 

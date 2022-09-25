@@ -8,14 +8,9 @@ return {
   ["neovim/nvim-lspconfig"] = {
     after = "mason.nvim",
     config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
       require "custom.plugins.mason-lspconfig"
-      vim.diagnostic.config {
-        underline = false,
-        virtual_text = false,
-        signs = true,
-        update_in_insert = true,
-        severity_sort = true,
-      }
     end,
   },
 
