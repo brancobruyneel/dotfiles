@@ -8,9 +8,8 @@ return {
   ["neovim/nvim-lspconfig"] = {
     after = "mason.nvim",
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
       require "custom.plugins.mason-lspconfig"
+      require "custom.plugins.lspconfig"
     end,
   },
 
@@ -58,9 +57,6 @@ return {
   },
   ["lewis6991/gitsigns.nvim"] = {
     override_options = override.gitsigns,
-  },
-  ["williamboman/mason.nvim"] = {
-    override_options = override.mason,
   },
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = override.blankline,

@@ -49,11 +49,12 @@ local sources = {
   b.formatting.stylua,
 
   b.formatting.shfmt,
+  b.formatting.yamlfmt,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
-  debug = false,
+  debug = true,
   sources = sources,
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then

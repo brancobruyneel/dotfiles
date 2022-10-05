@@ -2,6 +2,9 @@ local utils = require "core.utils"
 
 local M = {}
 
+require("base46").load_highlight "lsp"
+require "nvchad_ui.lsp"
+
 M.on_attach = function(client, bufnr)
   if vim.g.vim_version > 7 then
     -- nightly

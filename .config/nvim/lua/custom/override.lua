@@ -25,6 +25,8 @@ M.nvimtree = {
     enable = true,
   },
 
+  sync_root_with_cwd = true,
+
   renderer = {
     highlight_git = true,
     icons = {

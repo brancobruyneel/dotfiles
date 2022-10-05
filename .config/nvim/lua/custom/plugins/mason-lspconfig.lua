@@ -23,6 +23,7 @@ require("mason-lspconfig").setup {
     "shellcheck",
   },
 }
+
 require("mason-lspconfig").setup_handlers {
   function(server_name)
     lspconfig[server_name].setup {

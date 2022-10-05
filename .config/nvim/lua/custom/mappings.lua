@@ -5,9 +5,13 @@ M.general = {
     ["C-BS"] = { "<C-w>", "delete the previous word in insert mode" },
   },
   n = {
-    ["<leader>y"] = { "<cmd> %y+ <CR>", "copy whole file" },
+    ["<leader>Y"] = { ":%y+ <CR>", "copy whole file" },
+    ["<leader>y"] = { '"+Y', "copy" },
     ["H"] = { "" },
     ["L"] = { "" },
+  },
+  v = {
+    ["<leader>y"] = { '"+y', "visual copy" },
   },
 }
 
