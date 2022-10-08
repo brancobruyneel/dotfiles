@@ -67,6 +67,7 @@ M.telescope = {
   n = {
     ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "find files" },
     ["<leader>fp"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
+    ["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "find workspace diagnostics" },
   },
 }
 
