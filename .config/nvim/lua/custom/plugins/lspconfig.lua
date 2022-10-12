@@ -6,15 +6,9 @@ require("base46").load_highlight "lsp"
 require "nvchad_ui.lsp"
 
 M.on_attach = function(client, bufnr)
-  if vim.g.vim_version > 7 then
-    -- nightly
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  else
-    -- stable
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
+  -- nightly
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 
   utils.load_mappings("lspconfig", { buffer = bufnr })
 

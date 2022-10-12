@@ -25,6 +25,10 @@ M.nvimtree = {
     enable = true,
   },
 
+  view = {
+    adaptive_size = false,
+  },
+
   sync_root_with_cwd = true,
 
   actions = {

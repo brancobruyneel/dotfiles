@@ -24,6 +24,7 @@ local sources = {
       "typescript",
       "javascriptreact",
       "typescriptreact",
+      "yaml",
       "scss",
       "css",
       "markdown",
@@ -49,7 +50,6 @@ local sources = {
   b.formatting.stylua,
 
   b.formatting.shfmt,
-  b.formatting.yamlfmt,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

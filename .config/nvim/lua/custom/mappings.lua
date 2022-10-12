@@ -7,6 +7,8 @@ M.general = {
   n = {
     ["<leader>Y"] = { ":%y+ <CR>", "copy whole file" },
     ["<leader>y"] = { '"+Y', "copy" },
+    ["<leader>h"] = { "" },
+    ["<leader>n"] = { "" },
     ["H"] = { "" },
     ["L"] = { "" },
   },
@@ -22,12 +24,14 @@ M.packer = {
 }
 
 M.nvimtree = {
+  plugin = true,
   n = {
     ["<leader>ne"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
   },
 }
 
 M.lsp = {
+  plugin = true,
   n = {
     ["<leader>f"] = {
       function()
@@ -64,14 +68,17 @@ M.lsp = {
 }
 
 M.telescope = {
+  plugin = true,
   n = {
     ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "find files" },
     ["<leader>fp"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "find workspace diagnostics" },
+    ["<leader>fb"] = { "<cmd> Telescope git_branches <CR>", "find git branches" },
   },
 }
 
 M.gitsigns = {
+  plugin = true,
   n = {
     ["]c"] = {
       function()
@@ -97,12 +104,31 @@ M.gitsigns = {
         return "<Ignore>"
       end,
     },
-    ["<leader>hr"] = { "<cmd> Gitsigns reset_hunk <CR>", "reset hunk" },
-    ["<leader>hR"] = { "<cmd> Gitsigns reset_buffer <CR>", "reset git buffer" },
+    ["<leader>hS"] = { "<cmd> Gitsigns stage_buffer <CR>", "reset hunk" },
+    ["<leader>hs"] = { "<cmd> Gitsigns stage_hunk <CR>" },
+    ["<leader>hu"] = { "<cmd> Gitsigns undo_stage_hunk <CR>", "reset hunk" },
+    ["<leader>hR"] = { "<cmd> Gitsigns reset_buffer <CR>", "reset hunk" },
+    ["<leader>hr"] = { "<cmd> Gitsigns reset_hunk <CR>" },
+    ["<leader>hp"] = { "<cmd> Gitsigns preview_hunk <CR>", "reset hunk" },
+    ["<leader>hb"] = {
+      function()
+        local gs = require "gitsigns"
+        gs.blame_line { full = true }
+      end,
+    },
+    ["<leader>tb"] = { "<cmd> Gitsigns toggle_current_line_blame <CR>", "reset hunk" },
+    ["<leader>hd"] = { "<cmd> Gitsigns diffthis <CR>", "reset hunk" },
+    ["<leader>hD"] = {
+      function()
+        local gs = require "gitsigns"
+        gs.diffthis "~"
+      end,
+    },
+    ["<leader>td"] = { "<cmd> Gitsigns toggle_deleted <CR>" },
   },
   v = {
     ["<leader>hr"] = { "<cmd> Gitsigns reset_hunk <CR>" },
-    ["<leader>hR"] = { "<cmd> Gitsigns reset_buffer <CR>" },
+    ["<leader>hs"] = { "<cmd> Gitsigns stage_hunk <CR>" },
   },
 }
 
