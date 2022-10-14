@@ -9,9 +9,11 @@ M.general = {
     ["<leader>y"] = { '"+Y', "copy" },
     ["<leader>h"] = { "" },
     ["<leader>n"] = { "" },
+    ["<leader>tc"] = { "<CMD> tabclose <CMD>" },
     ["H"] = { "" },
     ["L"] = { "" },
   },
+
   v = {
     ["<leader>y"] = { '"+y', "visual copy" },
   },
@@ -79,6 +81,7 @@ M.telescope = {
 
 M.gitsigns = {
   plugin = true,
+
   n = {
     ["]c"] = {
       function()
@@ -117,18 +120,29 @@ M.gitsigns = {
       end,
     },
     ["<leader>tb"] = { "<cmd> Gitsigns toggle_current_line_blame <CR>", "reset hunk" },
-    ["<leader>hd"] = { "<cmd> Gitsigns diffthis <CR>", "reset hunk" },
-    ["<leader>hD"] = {
-      function()
-        local gs = require "gitsigns"
-        gs.diffthis "~"
-      end,
-    },
     ["<leader>td"] = { "<cmd> Gitsigns toggle_deleted <CR>" },
   },
   v = {
     ["<leader>hr"] = { "<cmd> Gitsigns reset_hunk <CR>" },
     ["<leader>hs"] = { "<cmd> Gitsigns stage_hunk <CR>" },
+  },
+}
+
+M.diffview = {
+  plugin = true,
+
+  n = {
+    ["<leader>do"] = { "<cmd> DiffviewOpen <CR>" },
+    ["<leader>dq"] = { "<cmd> DiffviewClose <CR>" },
+  },
+}
+
+M.mind = {
+  plugin = true,
+
+  n = {
+    ["<leader>mo"] = { "<cmd> MindOpenMain <CR>" },
+    ["<leader>mq"] = { "<cmd> MindClose <CR>" },
   },
 }
 

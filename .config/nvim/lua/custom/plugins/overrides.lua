@@ -21,12 +21,13 @@ M.treesitter = {
 }
 
 M.nvimtree = {
-  git = {
-    enable = true,
+  filters = {
+    exclude = { vim.fn.stdpath "config" .. "/lua/custom", ".git" },
   },
 
-  view = {
-    adaptive_size = false,
+  git = {
+    enable = true,
+    ignore = true,
   },
 
   sync_root_with_cwd = true,
@@ -35,6 +36,9 @@ M.nvimtree = {
     change_dir = {
       enable = true,
       global = true,
+    },
+    open_file = {
+      resize_window = false,
     },
   },
 

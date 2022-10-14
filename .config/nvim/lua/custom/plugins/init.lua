@@ -48,6 +48,10 @@ return {
     end,
   },
 
+  ["sindrets/diffview.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+  },
+
   -- overrides
   ["kyazdani42/nvim-tree.lua"] = {
     override_options = override.nvimtree,
