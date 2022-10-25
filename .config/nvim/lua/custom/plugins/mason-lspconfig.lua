@@ -4,24 +4,28 @@ local capabilities = require("custom.plugins.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 require("mason-lspconfig").setup {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
+  PATH = "skip",
 
-    -- web dev
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "emmet-ls",
-    "json-lsp",
+  ui = {
+    icons = {
+      package_pending = " ",
+      package_installed = " ",
+      package_uninstalled = " ﮊ",
+    },
 
-    "rust-analyzer",
-
-    -- shell
-    "shfmt",
-    "shellcheck",
+    keymaps = {
+      toggle_server_expand = "<CR>",
+      install_server = "i",
+      update_server = "u",
+      check_server_version = "c",
+      update_all_servers = "U",
+      check_outdated_servers = "C",
+      uninstall_server = "X",
+      cancel_installation = "<C-c>",
+    },
   },
+
+  max_concurrent_installers = 10,
 }
 
 require("mason-lspconfig").setup_handlers {

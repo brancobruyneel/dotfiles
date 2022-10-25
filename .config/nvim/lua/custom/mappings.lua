@@ -9,7 +9,13 @@ M.general = {
     ["<leader>y"] = { '"+Y', "copy" },
     ["<leader>h"] = { "" },
     ["<leader>n"] = { "" },
-    ["<leader>tc"] = { "<CMD> tabclose <CMD>" },
+    ["<leader>tq"] = { "<CMD> tabclose <CR>" },
+    ["<leader>1"] = { "1gt" },
+    ["<leader>2"] = { "2gt" },
+    ["<leader>3"] = { "3gt" },
+    ["<leader>4"] = { "4gt" },
+    ["<leader>5"] = { "5gt" },
+    ["<leader>6"] = { "6gt" },
     ["H"] = { "" },
     ["L"] = { "" },
   },
@@ -33,7 +39,6 @@ M.nvimtree = {
 }
 
 M.lsp = {
-  plugin = true,
   n = {
     ["<leader>f"] = {
       function()
@@ -70,7 +75,6 @@ M.lsp = {
 }
 
 M.telescope = {
-  plugin = true,
   n = {
     ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "find files" },
     ["<leader>fp"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
@@ -80,8 +84,6 @@ M.telescope = {
 }
 
 M.gitsigns = {
-  plugin = true,
-
   n = {
     ["]c"] = {
       function()
@@ -129,8 +131,6 @@ M.gitsigns = {
 }
 
 M.diffview = {
-  plugin = true,
-
   n = {
     ["<leader>do"] = { "<cmd> DiffviewOpen <CR>" },
     ["<leader>dq"] = { "<cmd> DiffviewClose <CR>" },
@@ -138,8 +138,6 @@ M.diffview = {
 }
 
 M.mind = {
-  plugin = true,
-
   n = {
     ["<leader>mo"] = { "<cmd> MindOpenMain <CR>" },
     ["<leader>mq"] = { "<cmd> MindClose <CR>" },

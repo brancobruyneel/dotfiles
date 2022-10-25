@@ -52,6 +52,14 @@ return {
     requires = "nvim-lua/plenary.nvim",
   },
 
+  ["toppair/peek.nvim"] = {
+    run = "deno task --quiet build:fast",
+    branch = "separate-process",
+    config = function()
+      require "custom.plugins.peek"
+    end,
+  },
+
   -- overrides
   ["kyazdani42/nvim-tree.lua"] = {
     override_options = override.nvimtree,

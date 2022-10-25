@@ -50,6 +50,7 @@ local sources = {
   b.formatting.stylua,
 
   b.formatting.shfmt,
+  b.formatting.terraform_fmt,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
