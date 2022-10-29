@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+dirs=$(find ~/dev ~/.config ~/.local/src -mindepth 1 -maxdepth 1 -type d)
+
+# Inside tmux
+if [[ -n $TMUX ]]; then
+	path=$(echo "$dirs" | fzf-tmux -w 80 -h 30)
+else
+	path=$(echo "$dirs" | fzf --height=30 --scheme=path)
+fi
+
+session=$(basename "$path" | tr . _)
+
+if [ -z "$session" ]; then
+	exit 0
+fi
+
+tmux new-session -d -c "$path" -s "$session" 2>/dev/null
+tmux send-keys -t "$session" nvim ENTER
+
+# Inside tmux
+if [[ -n $TMUX ]]; then
+	tmux switch-client -t "$session"
+	exit 0
+fi
+
+tmux attach -t "$session"
