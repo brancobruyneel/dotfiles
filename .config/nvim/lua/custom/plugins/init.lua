@@ -31,6 +31,7 @@ return {
   },
 
   ["nvim-treesitter/nvim-treesitter-context"] = {},
+  ["nvim-treesitter/nvim-treesitter-textobjects"] = {},
 
   ["iamcco/markdown-preview.nvim"] = {
     run = "cd app && npm install",
@@ -60,7 +61,12 @@ return {
     end,
   },
 
+  ["nvim-telescope/telescope-fzf-native.nvim"] = { run = "make" },
+
   -- overrides
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = override.cmp,
+  },
   ["kyazdani42/nvim-tree.lua"] = {
     override_options = override.nvimtree,
   },
@@ -72,5 +78,8 @@ return {
   },
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = override.blankline,
+  },
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = override.telescope,
   },
 }
