@@ -7,17 +7,14 @@ end
 local b = null_ls.builtins
 
 local sources = {
+  -- diagnostics
   b.diagnostics.eslint_d,
   b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
-  -- code actions
-  b.code_actions.eslint_d,
-
-  -- formatting
-  -- b.formatting.eslint_d,
   b.formatting.prettierd.with {
     filetypes = {
+      "astro",
       "html",
       "json",
       "javascript",
@@ -30,6 +27,7 @@ local sources = {
       "markdown",
     },
   },
+
   b.formatting.rustfmt.with {
     extra_args = function(params)
       local Path = require "plenary.path"
@@ -47,15 +45,19 @@ local sources = {
       return { "--edition=2021" }
     end,
   },
+
+  -- Lua
   b.formatting.stylua,
 
+  -- misc
   b.formatting.shfmt,
   b.formatting.terraform_fmt,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 null_ls.setup {
-  debug = true,
+  debug = false,
   sources = sources,
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
