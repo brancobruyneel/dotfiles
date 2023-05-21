@@ -8,6 +8,11 @@ M.ui = {
   theme = "onedark",
   theme_toggle = { "onedark", "onedark" },
 
+  statusline = {
+    theme = "default",
+    separator_style = "default",
+  },
+
   hl_override = highlights.override,
   hl_add = highlights.add,
 }

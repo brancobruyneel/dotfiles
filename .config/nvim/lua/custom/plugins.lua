@@ -24,6 +24,10 @@ local plugins = {
 
   -- override plugin configs
   {
+    "nvterm",
+    enabled = false,
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
       show_current_context_start = false,

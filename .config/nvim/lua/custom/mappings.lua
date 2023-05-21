@@ -1,4 +1,6 @@
 ---@type MappingsTable
+-- more keybinds!
+
 local M = {}
 
 M.general = {
@@ -29,6 +31,7 @@ M.telescope = {
     ["<leader>fp"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "find workspace diagnostics" },
     ["<leader>fb"] = { "<cmd> Telescope git_branches <CR>", "find git branches" },
+    ["<leader>fw"] = { "<cmd> Telescope live_grep preview=true <CR>", "Live grep" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
   },
 }

@@ -16,9 +16,6 @@ M.treesitter = {
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
 }
 
@@ -28,7 +25,6 @@ M.mason = {
     "stylua",
 
     "rust-analyzer",
-
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
@@ -99,8 +95,25 @@ M.cmp = {
 }
 
 M.telescope = {
-  layout_config = {
-    horizontal = {},
+  defaults = {
+    preview = false,
+    layout_config = {
+      width = function(_, cols, _)
+        if cols > 120 then
+          return 120
+        end
+
+        return math.floor(cols * 0.87)
+      end,
+    },
+  },
+
+  pickers = {
+    live_grep = {
+      layout_config = {
+        width = 0.87,
+      },
+    },
   },
 }
 
