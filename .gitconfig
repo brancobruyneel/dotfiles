@@ -1,3 +1,16 @@
 [user]
-	email = branco.bruyneel@gmail.com
-	name = Branco
+  name = brancobruyneel
+  email = branco.bruyneel@gmail.com
+
+[url "git@gitlab.com:"]
+  insteadOf = https://gitlab.com/
+
+[push]
+ default = tracking
+ autoSetupRemote = true
+
+[pull]
+  rebase = true
+
+[branch]
+  autoSetupRebase = always
