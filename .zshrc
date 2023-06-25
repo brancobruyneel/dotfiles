@@ -1,9 +1,3 @@
-ZSH_THEME="robbyrussell"
-
-plugins=()
-
-source $ZSH/oh-my-zsh.sh
-
 # common
 alias vim="nvim"
 alias v="nvim"
@@ -14,9 +8,15 @@ alias sd="sudo shutdown now"
 alias rb="sudo reboot now"
 alias nb='newsboat'
 alias bar="sh $HOME/.local/share/dwm/bar/bar.sh &"
+alias ls="ls --color=auto"
+alias ll="ls -lh"
+alias la="ls -a"
+alias lla="ls -lah"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
 
 # tmux
-alias tns="tmux new -s"
+alias t="tmux new -s"
 alias ta="tmux at"
 alias tk="pkill tmux"
 alias tls="tmux ls"
@@ -59,40 +59,16 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
-# kubectl
-source <(kubectl completion zsh)
-
-# helm
-source <(helm completion zsh)
+bindkey -s '^f' 'tmux-sessionizer\n'
+bindkey -s '^s' 'tmux-switch-session\n'
 
 # npm
 source <(npm completion)
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
-fi
+# ssh key
+eval $(keychain --eval --quiet id_rsa)
 
-eval "$(direnv hook zsh)"
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/branco/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/branco/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/branco/.miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/branco/.miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+eval "$(starship init zsh)"
