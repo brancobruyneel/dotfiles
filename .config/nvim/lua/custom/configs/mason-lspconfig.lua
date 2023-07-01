@@ -74,8 +74,6 @@ local handlers = {
 
 mason_lsp.setup {
   ensure_installed = {
-    "html",
-    "cssls",
     "tsserver",
     "bashls",
     "gopls",

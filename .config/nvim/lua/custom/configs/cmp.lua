@@ -81,6 +81,7 @@ local options = {
     },
   },
   sources = {
+    { name = "cmd_line" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "path" },

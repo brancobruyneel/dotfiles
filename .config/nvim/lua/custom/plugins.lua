@@ -45,10 +45,6 @@ local plugins = {
     enabled = false,
   },
   {
-    "williamboman/mason.nvim",
-    lazy = false,
-  },
-  {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
       show_current_context_start = false,
@@ -84,11 +80,66 @@ local plugins = {
   },
 
   {
-    "sindrets/diffview.nvim",
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      config = function(_, opts)
+        local dap, dapui = require "dap", require "dapui"
+        dapui.setup(opts)
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+          dapui.open {}
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+          dapui.close {}
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+          dapui.close {}
+        end
+      end,
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        opts = {
+          debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
+          adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost", "node", "chrome" }, -- which adapters to register in nvim-dap
+        },
+      },
+      {
+        "microsoft/vscode-js-debug",
+        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+        lazy = true,
+      },
+    },
     config = function()
-      require "custom.configs.diffview"
+      -- shows current position of debugger in code
+      require("nvim-dap-virtual-text").setup {
+        enabled_commands = false,
+        highlight_changed_variables = true,
+        highlight_new_as_changeod = true,
+        commented = false, -- prefix virtual text with comment string
+        show_stop_reason = true,
+      }
     end,
-    lazy = false,
+    config = function()
+      require "plugins.configs.dap"
+    end,
+  },
+
+  {
+    "folke/neodev.nvim",
+    opts = {
+      library = { plugins = { "nvim-dap-ui" }, types = true },
+    },
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    opts = function()
+      return require "custom.configs.diffview"
+    end,
   },
 
   {

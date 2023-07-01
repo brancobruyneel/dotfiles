@@ -11,7 +11,8 @@ M.general = {
     ["<leader>n"] = { "" },
 
     -- tabs
-    ["<leader>tq"] = { "<CMD> tabclose <CR>" },
+    ["<leader>tq"] = { "<CMD> tabclose <CR>", "Close current tab" },
+    ["<leader>tt"] = { "<CMD> tab split <CR>", "Open current buffer in a new tab" },
     ["<leader>1"] = { "1gt" },
     ["<leader>2"] = { "2gt" },
     ["<leader>3"] = { "3gt" },
@@ -146,6 +147,46 @@ M.fugitive = {
     },
     ["<leader>gP"] = {
       "<cmd> G push <CR>",
+    },
+  },
+}
+
+M.dap = {
+  n = {
+    ["<F5>"] = {
+      function()
+        require("dap").continue()
+      end,
+    },
+    ["<F10>"] = {
+      function()
+        require("dap").step_over()
+      end,
+    },
+    ["<F11>"] = {
+      function()
+        require("dap").step_into()
+      end,
+    },
+    ["<F12>"] = {
+      function()
+        require("dap").step_out()
+      end,
+    },
+    ["<leader>b"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+    },
+    ["<leader>B"] = {
+      function()
+        require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+      end,
+    },
+    ["<leader>du"] = {
+      function()
+        require("dapui").toggle()
+      end,
     },
   },
 }

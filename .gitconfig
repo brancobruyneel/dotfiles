@@ -9,8 +9,5 @@
  default = tracking
  autoSetupRemote = true
 
-[pull]
-  rebase = true
-
-[branch]
-  autoSetupRebase = always
+[init]
+	defaultBranch = main
