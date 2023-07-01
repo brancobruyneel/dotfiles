@@ -4,28 +4,49 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
       {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
       },
     },
     config = function()
+      require "custom.configs.null-ls"
+      require "custom.configs.mason-lspconfig"
       require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+
+      vim.diagnostic.config {
+        underline = false,
+        virtual_text = false,
+        signs = true,
+        update_in_insert = true,
+        severity_sort = true,
+      }
     end, -- Override to setup mason-lspconfig
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      return require "custom.configs.cmp"
+    end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+    end,
   },
 
   -- override plugin configs
   {
     "nvterm",
     enabled = false,
+  },
+  {
+    "williamboman/mason.nvim",
+    lazy = false,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -47,11 +68,6 @@ local plugins = {
   },
 
   {
-    "hrsh7th/nvim-cmp",
-    opts = overrides.cmp,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
@@ -68,12 +84,26 @@ local plugins = {
   },
 
   {
+    "sindrets/diffview.nvim",
+    config = function()
+      require "custom.configs.diffview"
+    end,
+    lazy = false,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = false,
   },
 
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    "github/copilot.vim",
+    lazy = false,
+  },
+
+  {
+    "folke/which-key.nvim",
+    enabled = false,
   },
 }
 

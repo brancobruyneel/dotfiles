@@ -9,6 +9,7 @@ local b = null_ls.builtins
 local sources = {
   -- diagnostics
   b.diagnostics.eslint_d,
+  b.diagnostics.golangci_lint,
   b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
@@ -45,6 +46,8 @@ local sources = {
       return { "--edition=2021" }
     end,
   },
+
+  b.formatting.gofmt,
 
   -- Lua
   b.formatting.stylua,

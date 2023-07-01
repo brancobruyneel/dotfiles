@@ -35,11 +35,18 @@ M.mason = {
 -- git support in nvimtree
 M.nvimtree = {
   filters = {
-    custom = { ".git" },
+    custom = { "^.git$" },
   },
 
   git = {
     enable = true,
+  },
+
+  view = {
+    adaptive_size = true,
+    side = "left",
+    width = 30,
+    preserve_window_proportions = true,
   },
 
   sync_root_with_cwd = true,
@@ -84,13 +91,6 @@ M.gitsigns = {
     delete = { hl = "DiffDelete", text = "│", numhl = "GitSignsDeleteNr" },
     topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
     changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-  },
-}
-
-M.cmp = {
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "nvim_lua" },
   },
 }
 
