@@ -5,6 +5,7 @@ if not present then
 end
 
 local lspconfig = require "lspconfig"
+local util = lspconfig.util
 
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
@@ -66,6 +67,24 @@ local handlers = {
               "--all-features",
             },
           },
+        },
+      },
+    }
+  end,
+
+  ["gopls"] = function()
+    lspconfig.gopls.setup {
+      cmd = { "gopls" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+      settings = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+          },
+          completeUnimported = true,
+          usePlaceholders = true,
+          staticcheck = true,
         },
       },
     }
