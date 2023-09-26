@@ -106,6 +106,10 @@ M.telescope = {
         return math.floor(cols * 0.87)
       end,
     },
+    mappings = {
+      n = { ["<C-q>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist },
+      i = { ["<C-q>"] = require("telescope.actions").smart_send_to_qflist + require("telescope.actions").open_qflist },
+    },
   },
 
   pickers = {
@@ -115,6 +119,8 @@ M.telescope = {
       },
     },
   },
+
+  extensions_list = { "themes", "terms", "dap" },
 }
 
 return M

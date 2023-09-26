@@ -10,11 +10,11 @@ local sources = {
   -- diagnostics
   b.diagnostics.eslint_d,
   b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+  -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
   b.formatting.gofumpt,
   b.formatting.goimports_reviser,
-  b.formatting.golines,
+  -- b.formatting.golines,
 
   b.formatting.prettierd.with {
     filetypes = {

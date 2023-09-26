@@ -29,16 +29,6 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
   },
 
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      return require "custom.configs.cmp"
-    end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
-    end,
-  },
-
   -- override plugin configs
   {
     "nvterm",
@@ -83,11 +73,37 @@ local plugins = {
     "mfussenegger/nvim-dap",
     init = function()
       require("core.utils").load_mappings "dap"
+      require("dap.ext.vscode").load_launchjs(nil, {})
     end,
     dependencies = {
       {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        config = function(_, opts)
+          require("dap-go").setup(opts)
+          require("core.utils").load_mappings "dap_go"
+        end,
+      },
+      {
+        "nvim-telescope/telescope-dap.nvim",
+        config = function()
+          require("telescope").load_extension "dap"
+        end,
+      },
+      {
         "rcarriga/nvim-dap-ui",
-        config = function(_, _)
+        keys = {
+          {
+            "<leader>du",
+            function()
+              require("dapui").toggle()
+            end,
+            silent = true,
+          },
+        },
+        opts = {},
+        config = function(_, opts)
+          require("dapui").setup(opts)
           local dap, dapui = require "dap", require "dapui"
           dap.listeners.after.event_initialized["dapui_config"] = function()
             dapui.open()
@@ -101,15 +117,8 @@ local plugins = {
         end,
         lazy = false,
       },
-      {
-        "mfussenegger/nvim-dap-go",
-        ft = "go",
-        config = function(_, opts)
-          require("dap-go").setup(opts)
-          require("core.utils").load_mappings "dap_go"
-        end,
-      },
     },
+    lazy = false,
   },
 
   {
@@ -120,6 +129,34 @@ local plugins = {
     end,
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-go",
+    },
+    cmd = { "Neotest" },
+    config = function()
+      -- get neotest namespace (api call creates or returns namespace)
+      local neotest_ns = vim.api.nvim_create_namespace "neotest"
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+            return message
+          end,
+        },
+      }, neotest_ns)
+      require("neotest").setup {
+        -- your neotest config here
+        adapters = {
+          require "neotest-go",
+        },
+      }
     end,
   },
 

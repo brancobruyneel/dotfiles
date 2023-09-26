@@ -51,6 +51,8 @@ local handlers = {
 
   ["rust_analyzer"] = function()
     lspconfig.rust_analyzer.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
       settings = {
         ["rust_analyzer"] = {
           cargo = {
@@ -74,6 +76,8 @@ local handlers = {
 
   ["gopls"] = function()
     lspconfig.gopls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
       cmd = { "gopls" },
       filetypes = { "go", "gomod", "gowork", "gotmpl" },
       root_dir = util.root_pattern("go.mod", ".git", "go.work"),
@@ -83,7 +87,7 @@ local handlers = {
             unusedparams = true,
           },
           completeUnimported = true,
-          usePlaceholders = true,
+          usePlaceholders = false,
           staticcheck = true,
         },
       },
