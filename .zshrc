@@ -1,19 +1,32 @@
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+setopt incappendhistory
+
 # common
 alias vim="nvim"
 alias v="nvim"
+
 alias dots="cd $HOME/dev/dotfiles"
 alias rr="ranger"
-alias feh="feh -F"
+
 alias sd="sudo shutdown now"
 alias rb="sudo reboot now"
-alias nb='newsboat'
-alias bar="sh $HOME/.local/share/dwm/bar/bar.sh &"
+
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias la="ls -a"
 alias lla="ls -lah"
+
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias tf=terraform
+  
 
 # tmux
 alias t="tmux new -s"
@@ -44,6 +57,7 @@ alias gca='git commit -a'               # Add tracked files + commit
 alias gcam='git commit -am'             # Add tracked files + commit with a message
 alias gco='git checkout'                # Checkout
 alias gcob='git checkout -b'            # Checkout to a new branch
+alias gp='git pull'                     # Pull
 alias gpp='git pull && git push'        # Never forget to pull first
 alias gpu='git push -u origin $(git status -sb | head -n1 | cut -c 4-)' # git push -u origin <BRANCHNAME>
 alias gpf='git push --force-with-lease && echo "YOU MONSTER!"' # A cleaner alternative
@@ -57,6 +71,7 @@ fd() {
 # vi mode
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+bindkey -v '^?' backward-delete-char
 
 # fzf
 source /opt/homebrew/opt/fzf/shell/completion.zsh
@@ -72,3 +87,8 @@ source <(npm completion)
 eval $(keychain --eval --quiet id_rsa)
 
 eval "$(starship init zsh)"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+autoload -Uz compinit
+compinit
