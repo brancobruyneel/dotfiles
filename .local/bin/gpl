@@ -1,0 +1,41 @@
+#!/bin/sh
+
+dir=/tmp/goplay
+session=goplay
+
+mkdir -p $dir
+cd $dir
+
+if tmux has-session -t $session 2>/dev/null; then
+  tmux kill-session -t $session
+fi
+
+go mod init goplay
+
+touch main.go
+cat <<EOL >main.go
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("hello")
+}
+EOL
+
+touch main_test.go
+cat <<EOL >main_test.go
+package main_test
+
+import "testing"
+
+func TestPlaceholder(t *testing.T) {
+  t.Fail()
+}
+EOL
+
+tmux new -d -s $session
+
+tmux send-keys -t $session 'nvim main.go' C-m
+
+tmux attach-session -t $session
