@@ -7,6 +7,8 @@ setopt incappendhistory
 alias vim="nvim"
 alias v="nvim"
 
+alias cat="bat"
+
 alias dots="cd $HOME/dev/dotfiles"
 alias rr="ranger"
 
@@ -26,13 +28,18 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias tf=terraform
-  
+
+# glab
+alias glrv="glab repo view -w"
+alias glcr="glab ci run | tee /dev/tty | grep -o 'https://[^ ]*' | xargs open"
+
 
 # tmux
 alias t="tmux new -s"
 alias ta="tmux at"
 alias tk="pkill tmux"
 alias tls="tmux ls"
+alias tsd="tmux-sync-dirs"
 
 # docker
 alias dps='docker ps --format "table {{ .ID }}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
@@ -73,6 +80,10 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -v '^?' backward-delete-char
 
+export VISUAL=nvim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 # fzf
 source /opt/homebrew/opt/fzf/shell/completion.zsh
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
@@ -92,3 +103,5 @@ eval "$(starship init zsh)"
 
 autoload -Uz compinit
 compinit
+
+source <(glab completion --shell zsh)

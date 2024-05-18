@@ -1,32 +1,38 @@
-local present, mason_lsp = pcall(require, "mason-lspconfig")
+local configs = require "nvchad.configs.lspconfig"
 
-if not present then
-  return
-end
+vim.diagnostic.config {
+  underline = false,
+  virtual_text = false,
+  signs = true,
+  float = {
+    show_header = true,
+    source = "if_many",
+    border = "rounded",
+    focusable = false,
+  },
+  update_in_insert = true,
+  severity_sort = true,
+}
+
+local on_attach = configs.on_attach
+local on_init = configs.on_init
+local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
-local util = lspconfig.util
 
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.max_width = opts.max_width or 100
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
-local handlers = {
-  function(server_name) -- default handler (optional)
+require("mason-lspconfig").setup_handlers {
+  -- default lsp setup
+  function(server_name)
     lspconfig[server_name].setup {
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
     }
   end,
 
-  ["lua_ls"] = function()
-    lspconfig["lua_ls"].setup {
+  ["lua_ls"] = function(server_name)
+    lspconfig[server_name].setup {
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -38,7 +44,7 @@ local handlers = {
             library = {
               [vim.fn.expand "$VIMRUNTIME/lua"] = true,
               [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-              [vim.fn.stdpath "data" .. "/lazy/extensions/nvchad_types"] = true,
+              [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
               [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
             },
             maxPreload = 100000,
@@ -51,6 +57,7 @@ local handlers = {
 
   ["rust_analyzer"] = function()
     lspconfig.rust_analyzer.setup {
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -76,16 +83,18 @@ local handlers = {
 
   ["gopls"] = function()
     lspconfig.gopls.setup {
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
       cmd = { "gopls" },
       filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+      root_dir = lspconfig.util.root_pattern("go.mod", ".git", "go.work"),
       settings = {
         gopls = {
           analyses = {
             unusedparams = true,
           },
+          gofumpt = true,
           completeUnimported = true,
           usePlaceholders = false,
           staticcheck = true,
@@ -93,16 +102,4 @@ local handlers = {
       },
     }
   end,
-}
-
-mason_lsp.setup {
-  ensure_installed = {
-    "tsserver",
-    "bashls",
-    "gopls",
-    "rust_analyzer",
-    "docker_compose_language_service",
-  },
-  automatic_installation = true,
-  handlers = handlers,
 }
