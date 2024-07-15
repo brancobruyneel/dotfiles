@@ -23,8 +23,15 @@ return {
     "hrsh7th/nvim-cmp",
     opts = function()
       local nvchad_opts = require "nvchad.configs.cmp"
-      local opts = require "configs.cmp"
-      return vim.tbl_deep_extend("force", nvchad_opts, opts)
+      local opts = vim.tbl_deep_extend("force", nvchad_opts, require "configs.cmp")
+
+      table.insert(opts.sources, 1, {
+        name = "copilot",
+        group_index = 1,
+        priority = 100,
+      })
+
+      return opts
     end,
   },
 }

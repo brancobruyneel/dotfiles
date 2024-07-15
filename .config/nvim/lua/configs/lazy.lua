@@ -2,6 +2,8 @@ return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 
+  notify = false,
+
   ui = {
     icons = {
       ft = "",

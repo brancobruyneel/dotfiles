@@ -1,9 +1,11 @@
 local configs = require "nvchad.configs.lspconfig"
 
+local x = vim.diagnostic.severity
+
 vim.diagnostic.config {
   underline = false,
   virtual_text = false,
-  signs = true,
+  signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
   float = {
     show_header = true,
     source = "if_many",
@@ -14,7 +16,12 @@ vim.diagnostic.config {
   severity_sort = true,
 }
 
-local on_attach = configs.on_attach
+local on_attach = function(client, bufnr)
+  configs.on_attach(client, bufnr)
+
+  vim.keymap.set("n", "ge", vim.diagnostic.open_float, { desc = "show diagnostic" })
+end
+
 local on_init = configs.on_init
 local capabilities = configs.capabilities
 

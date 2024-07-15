@@ -9,6 +9,8 @@ map("n", "<leader>n", "")
 map("n", "<leader>h", "")
 map("n", "<leader>v", "")
 map("n", "<leader>t", "")
+map("n", "<leader>b", "")
+map("n", "<leader>fb", "")
 
 map("n", "<c-j>", "<c-w><c-j>")
 map("n", "<c-k>", "<c-w><c-k>")
@@ -34,6 +36,8 @@ map("n", "<leader>fa", "<CMD> Telescope find_files hidden=true no_ignore=true <C
 map("n", "<leader>fd", "<CMD> Telescope diagnostics <CR>", { desc = "find workspace diagnostics" })
 map("n", "<leader>gs", "<CMD> Telescope git_status hidden=true no_ignore=true <CR>", { desc = "Grep git status" })
 map("n", "<leader>kb", "<CMD> Telescope keymaps hidden=true no_ignore=true <CR>", { desc = "Find keybinds" })
+map("n", "<leader>fb", "<CMD> Telescope git_branches <CR>", { desc = "Find branches" })
+map("n", "<leader>fr", "<CMD> Telescope registers <CR>", { desc = "Find registers" })
 
 map("n", "<leader>tf", "<CMD> lua require('neotest').run.run(vim.fn.expand '%') <CR>")
 map("n", "<leader>tl", "<CMD> lua require('neotest').run.last() <CR>")

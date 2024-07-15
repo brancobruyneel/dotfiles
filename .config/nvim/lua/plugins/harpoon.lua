@@ -10,7 +10,9 @@ return {
       harpoon:list():add()
     end)
     vim.keymap.set("n", "<C-e>", function()
-      harpoon.ui:toggle_quick_menu(harpoon:list())
+      harpoon.ui:toggle_quick_menu(harpoon:list(), {
+        ui_max_width = 100,
+      })
     end)
 
     for _, idx in ipairs { 1, 2, 3, 4, 5 } do
