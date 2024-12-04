@@ -17,6 +17,13 @@ map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
 
+for _, idx in ipairs { 1, 2, 3, 4, 5 } do
+	map("n", string.format("<leader>%d", idx), "<CMD>")
+end
+
+-- git
+map("n", "<leader>gp", "<CMD> G pull <CR>", { desc = "git pull" })
+
 -- clipboard
 map("n", "<leader>y", '"+y', { desc = "copy to system clipboard" })
 map("v", "<leader>y", '"+y', { desc = "visual copy to system clipboard" })

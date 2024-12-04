@@ -9,16 +9,18 @@
 local M = {}
 
 M.ui = {
-  theme = "onedark",
-
-  tabufline = {
-    enabled = false,
-  },
-  lsp = { signature = true },
+	tabufline = {
+		enabled = true,
+	},
+	lsp = { signature = true },
 }
 
 M.base46 = {
-  integrations = {},
+	integrations = {
+		"neogit",
+		"notify",
+	},
+	theme = "onedark"
 }
 
 return M

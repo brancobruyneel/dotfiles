@@ -10,6 +10,8 @@ o.wrap = false
 -- Numbers
 o.relativenumber = true
 
+o.expandtab = false
+
 -- Folds
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"

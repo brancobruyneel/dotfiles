@@ -4,8 +4,7 @@ return {
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-neotest/neotest-go",
+    "fredrikaverpil/neotest-golang",
   },
   cmd = { "Neotest" },
   keys = {
@@ -52,6 +51,13 @@ return {
       desc = "<neotest> Toggle summary",
     },
     {
+      "<leader>td",
+      function()
+        require("neotest").run.run { suite = true, strategy = "dap" }
+      end,
+      desc = "Debug nearest test",
+    },
+    {
       "<leader>to",
       function()
         require("neotest").output_panel.toggle()
@@ -77,7 +83,10 @@ return {
   config = function()
     require("neotest").setup {
       adapters = {
-        require "neotest-go",
+        require "neotest-golang" {
+          dap_go_enabled = true,
+          testify_enabled = true,
+        },
       },
     }
   end,
